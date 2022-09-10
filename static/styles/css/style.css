@@ -108,10 +108,18 @@ main {
   position: relative;
 }
 main .sidebar {
+  z-index: 2;
+  position: absolute;
+  left: 0;
+  top: 0;
   width: 20%;
   height: 100vh;
   background-color: #F5F5F5;
   overflow: hidden;
+  transition: 0.2s all;
+}
+main .sidebar.grow {
+  width: 30%;
 }
 main .sidebar .text-wrapper {
   height: calc(100% - 160px);
@@ -135,8 +143,8 @@ main .sidebar .text-wrapper #sub-container span[data-begin].speaking {
   box-shadow: 0px 0px 4px #FFFFCA;
 }
 main .sidebar .text-wrapper #sub-container span[data-begin]:hover, main .sidebar .text-wrapper #sub-container span[data-begin]:focus {
-  background-color: yellow;
-  box-shadow: 0px 0px 4px yellow;
+  background-color: #d2d2c6;
+  box-shadow: 0px 0px 4px #d2d2c6;
 }
 main .sidebar .text-wrapper p {
   font-family: sans-serif;
@@ -158,7 +166,7 @@ main .audio-player {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 17%;
+  min-width: 435px;
   height: 100px;
   border-radius: 23px;
   background-color: #F5F5F5;
@@ -258,7 +266,7 @@ main .audio-player .audio-track-wrapper .volume-wrapper input[type=range] {
 }
 main #panorama {
   height: 100vh;
-  width: 80%;
+  width: 100%;
 }
 main #panorama .pnlm-hotspot-base:hover {
   cursor: pointer;

@@ -7,10 +7,10 @@ const path = require('path')
 // var bodyParser = require('body-parser')
 
 // const questions = require('./static/json/questions.json');
-const { authUser } = require('./helpers/authUser');
-const { getCourseData } = require('./helpers/getCourseData');
-const { addToJson } = require('./helpers/addToJson');
-const { surveyCompleted } = require('./helpers/surveyCompleted');
+// const { authUser } = require('./helpers/authUser');
+// const { getCourseData } = require('./helpers/getCourseData');
+// const { addToJson } = require('./helpers/addToJson');
+// const { surveyCompleted } = require('./helpers/surveyCompleted');
 
 app
     .use(express.static(`${__dirname}/static`))

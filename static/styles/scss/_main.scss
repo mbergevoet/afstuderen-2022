@@ -14,10 +14,19 @@ main {
     position: relative;
 
     .sidebar {
+        z-index: 2;
+        position: absolute;
+        left: 0;
+        top: 0;
         width: 20%;
         height: 100vh;
         background-color: $offwhite;
         overflow: hidden;
+        transition: 0.2s all;
+
+        &.grow {
+            width: 30%;
+        }
 
         .text-wrapper {
             height: calc(100% - 160px);
@@ -48,8 +57,8 @@ main {
 
                     &:hover,
                     &:focus {
-                        background-color: yellow;
-                        box-shadow: 0px 0px 4px yellow;
+                        background-color: rgb(210, 210, 198);
+                        box-shadow: 0px 0px 4px rgb(210, 210, 198);
                     }
                 }
             }
@@ -78,7 +87,7 @@ main {
         flex-direction: column;
         justify-content: center;
         align-items: center;
-        width: 17%;
+        min-width: 435px;
         height: 100px;
         border-radius: 23px;
         background-color: $offwhite;
@@ -202,7 +211,7 @@ main {
 
     #panorama {
         height: 100vh;
-        width: 80%;
+        width: 100%;
 
         .pnlm-hotspot-base {
             &:hover {

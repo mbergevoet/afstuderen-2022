@@ -76,28 +76,25 @@ seekSlider.addEventListener('input', () => {
     showRangeProgress();
 });
 
-// const audioSync = require('audio-sync-with-text');
-
-// new audioSync({
-//     audioPlayer: 'audio-file', // the id of the audio tag
-//     subtitlesContainer: 'sub-container', // the id where subtitles should show
-//     subtitlesFile: '../subtitles/romeinsegrensinnederland.vtt' // the path to the vtt file
-// });
-
 // document.addEventListener("DOMContentLoaded", () => {
-//     setTimeout(() => {
-//         const textWrapper = document.querySelector(".text-wrapper");
-//         const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
-//         const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
-//         const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
+setTimeout(() => {
 
-//         hotspotOne.addEventListener("click", () => {
-//             textWrapper.classList.toggle("red");
+    const sideBar = document.querySelector("aside");
+    const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
+    const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
+    const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
+    console.log(hotspotOne);
 
-//         });
+    const textWrapper = document.querySelector(".text-wrapper");
 
-//         hotspotTwo.addEventListener("click", () => {
-//             textWrapper.classList.toggle("blue");
-//         });
-//     }, 100);
+    hotspotOne.addEventListener("click", () => {
+        sideBar.classList.toggle("grow");
+    });
+
+    hotspotTwo.addEventListener("click", () => {
+        sideBar.classList.toggle("grow");
+    });
+}, 500);
+
+
 // });

@@ -1,1 +1,50 @@
-{"users":[{"name":"Jan","id":"1","surveys":[{"survey":"kickoff","complete":false},{"survey":"webbappfromscratch","complete":false},{"survey":"csstotherescue","complete":true,"answers":{"docent":"Vasilis Van Gemert","datum":["2021-03-19","2021-03-13"],"lesstof":"4","uitleg":"4","eigeninzicht":"4"}},{"survey":"progressivewebapp","complete":true,"answers":{"docent":"Declan Rek","datum":["2021-03-13","2021-03-06"]}},{"survey":"browsertechnologies","complete":true,"answers":{"docent":"Koop Reynders","datum":["2021-03-20","2021-03-31"],"lesstof":"4","uitleg":"5","eigeninzicht":"5"}},{"survey":"weeklynerd","complete":false},{"survey":"realtimeweb","complete":false}]},{"name":"Piet","id":"2","surveys":[{"survey":"kickoff","courseName":"Kick Off","complete":false},{"survey":"webbappfromscratch","courseName":"Web App From Scratch","complete":false},{"survey":"csstotherescue","courseName":"CSS To The Rescue","complete":false},{"survey":"progressivewebapp","courseName":"Progressive Web App","complete":false},{"survey":"browsertechnologies","courseName":"Browser Technologies","complete":true,"answers":{"docent":"Koop Reynders","begindatum":"2021-03-18","einddatum":"2021-03-04","lesstof":"4","uitleg":"5","eigeninzicht":"5"}},{"survey":"weeklynerd","courseName":"Weekly Nerd","complete":true,"answers":{"docent":"Joost Faber","datum":["2021-03-19","2021-03-03"],"lesstof":"4","uitleg":"4","eigeninzicht":"4"}},{"survey":"realtimeweb","courseName":"Real Time Web","complete":true,"answers":{"docent":"Unknown","datum":["2021-03-12","2021-03-13"],"lesstof":"5","uitleg":"8","eigeninzicht":"5"}}]},{"name":"Klaas","id":"3","surveys":[{"survey":"kickoff","courseName":"Kick Off","complete":true,"answers":{"docent":"Koop Reynders","begindatum":"2021-03-31","einddatum":"2021-03-31","lesstof":"5","uitleg":"8","eigeninzicht":"6"}},{"survey":"webbappfromscratch","courseName":"Web App From Scratch","complete":false},{"survey":"csstotherescue","courseName":"CSS To The Rescue","complete":false},{"survey":"progressivewebapp","courseName":"Progressive Web App","complete":false},{"survey":"browsertechnologies","courseName":"Browser Technologies","complete":false},{"survey":"weeklynerd","courseName":"Weekly Nerd","complete":false},{"survey":"realtimeweb","courseName":"Real Time Web","complete":false}]},{"name":"Dirk","id":"4","surveys":[{"survey":"kickoff","courseName":"Kick Off","complete":false},{"survey":"webbappfromscratch","courseName":"Web App From Scratch","complete":false},{"survey":"csstotherescue","courseName":"CSS To The Rescue","complete":false},{"survey":"progressivewebapp","courseName":"Progressive Web App","complete":false},{"survey":"browsertechnologies","courseName":"Browser Technologies","complete":false},{"survey":"weeklynerd","courseName":"Weekly Nerd","complete":false},{"survey":"realtimeweb","courseName":"Real Time Web","complete":false}]},{"name":"Klaas","id":"Klaas","surveys":[{"survey":"kickoff","courseName":"Kick Off","complete":false},{"survey":"webbappfromscratch","courseName":"Web App From Scratch","complete":false},{"survey":"csstotherescue","courseName":"CSS To The Rescue","complete":false},{"survey":"progressivewebapp","courseName":"Progressive Web App","complete":false},{"survey":"browsertechnologies","courseName":"Browser Technologies","complete":false},{"survey":"weeklynerd","courseName":"Weekly Nerd","complete":false},{"survey":"realtimeweb","courseName":"Real Time Web","complete":false}]},{"name":"Merlijn","id":"500785472","surveys":[{"survey":"kickoff","courseName":"Kick Off","complete":true,"answers":{"docent":"Joost Faber","begindatum":"2021-03-11","einddatum":"2021-03-08","lesstof":"6","uitleg":"7","eigeninzicht":"5"}},{"survey":"webbappfromscratch","courseName":"Web App From Scratch","complete":false},{"survey":"csstotherescue","courseName":"CSS To The Rescue","complete":false},{"survey":"progressivewebapp","courseName":"Progressive Web App","complete":true,"answers":{"docent":"Declan Rek","begindatum":"2021-04-10","einddatum":"2021-04-09","lesstof":"5","uitleg":"5","eigeninzicht":"5"}},{"survey":"browsertechnologies","courseName":"Browser Technologies","complete":true,"answers":{"docent":"Koop Reynders","begindatum":"2021-03-10","einddatum":"2021-03-23","lesstof":"6","uitleg":"6","eigeninzicht":"6"}},{"survey":"weeklynerd","courseName":"Weekly Nerd","complete":false},{"survey":"realtimeweb","courseName":"Real Time Web","complete":false}]}]}
+{
+    "stories": [
+        {
+            "storyName": "De Noordelijke grens van het romeinse rijk",
+            "id": "1",
+            "words": [
+                {
+                    "word": "Dwars",
+                    "beginTime": 0.000,
+                    "endTime": 0.330
+                },
+                {
+                    "word": "door",
+                    "beginTime": 0.330,
+                    "endTime": 0.660
+                },
+                {
+                    "word": "Nederland",
+                    "beginTime": 0.660,
+                    "endTime": 0.810
+                },
+                {
+                    "word": "stroomt",
+                    "beginTime": 0.810,
+                    "endTime": 1.440
+                },
+                {
+                    "word": "de",
+                    "beginTime": 1.440,
+                    "endTime": 1.920
+                },
+                {
+                    "word": "rivier",
+                    "beginTime": 1.920,
+                    "endTime": 2.040
+                },
+                {
+                    "word": "de",
+                    "beginTime": 2.040,
+                    "endTime": 2.400
+                },
+                {
+                    "word": "Rijn.",
+                    "beginTime": 2.400,
+                    "endTime": 2.490
+                }
+            ]
+        }
+    ]
+}

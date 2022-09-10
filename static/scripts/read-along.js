@@ -24,12 +24,12 @@ var ReadAlong = {
         this.words = Array.prototype.map.call(word_els, function (word_el, index) {
             var word = {
                 'begin': parseFloat(word_el.dataset.begin),
-                'dur': parseFloat(word_el.dataset.dur),
+                'end': parseFloat(word_el.dataset.end),
                 'element': word_el
             };
             word_el.tabIndex = 0; // to make it focusable/interactive
             word.index = index;
-            word.end = word.begin + word.dur;
+            word.end = word.begin + word.end;
             word_el.dataset.index = word.index;
             return word;
         });

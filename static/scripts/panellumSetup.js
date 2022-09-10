@@ -14,7 +14,7 @@ pannellum.viewer('panorama', {
             "pitch": 3.3428100372831215,
             "yaw": 188.39398778576194,
             "type": "info",
-            "text": "Trapje"
+            "text": "Romeinse trappen"
         },
         {
             "pitch": -10.917758947711812,
