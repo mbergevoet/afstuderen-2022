@@ -80,7 +80,7 @@ var ReadAlong = {
         if (!current_word.element.classList.contains('speaking')) {
             this.removeWordSelection();
             current_word.element.classList.add('speaking');
-            console.log(this);
+            // console.log(current_word.element.outerText);
             if (this.autofocus_current_word) {
                 current_word.element.focus();
             }
@@ -167,7 +167,7 @@ var ReadAlong = {
             e.preventDefault();
 
             var i = e.target.dataset.index;
-            that.audio_element.currentTime = that.words[i].begin + 0.01; //Note: times apparently cannot be exactly set and sometimes select too early
+            that.audio_element.currentTime = that.words[i].begin - 0.01; //Note: times apparently cannot be exactly set and sometimes select too early
             that.selectCurrentWord();
         }
         that.text_element.addEventListener('click', on_select_word_el, false);
