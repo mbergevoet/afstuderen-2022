@@ -76,23 +76,47 @@ seekSlider.addEventListener('input', () => {
     showRangeProgress();
 });
 
+function fetchJson(infoID) {
+    const infoText = document.querySelector("#information-container > p");
+
+
+    let isEmpty = infoText.innerHTML;
+    if (isEmpty == null || isEmpty == "") {
+        fetch("../json/info.json")
+            .then(res => res.json())
+            .then(obj => obj.informationPoints.filter(item => item.id == infoID))
+            .then(arr => infoText.innerHTML = arr[0].infoText)
+    }
+    else {
+        infoText.innerHTML = "";
+    }
+}
+
 // document.addEventListener("DOMContentLoaded", () => {
 setTimeout(() => {
 
     const sideBar = document.querySelector("aside");
+    const subtitleContainer = document.querySelector("#sub-container");
     const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
     const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
     const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
-    console.log(hotspotOne);
+    // const infoContainer = document.querySelector("#information-container");
+    const infoText = document.querySelector("#information-container > p");
+    // const imageContainer = document.querySelector("#information-container > img");
+    // console.log(infoText);
 
     const textWrapper = document.querySelector(".text-wrapper");
 
     hotspotOne.addEventListener("click", () => {
+        fetchJson("1")
         sideBar.classList.toggle("grow");
+        subtitleContainer.classList.toggle("visible");
     });
 
     hotspotTwo.addEventListener("click", () => {
+        fetchJson("2")
         sideBar.classList.toggle("grow");
+        subtitleContainer.classList.toggle("visible");
     });
 }, 500);
 

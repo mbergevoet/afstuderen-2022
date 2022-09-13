@@ -51,8 +51,8 @@ main {
                     cursor: pointer;
 
                     &.speaking {
-                        background-color: #FFFFCA;
-                        box-shadow: 0px 0px 4px #FFFFCA;
+                        background-color: rgb(188, 188, 183);
+                        box-shadow: 0px 0px 4px rgb(188, 188, 183);
                     }
 
                     &:hover,
@@ -60,6 +60,12 @@ main {
                         background-color: rgb(210, 210, 198);
                         box-shadow: 0px 0px 4px rgb(210, 210, 198);
                     }
+                }
+
+                &.visible {
+                    height: 0;
+                    visibility: hidden;
+                    opacity: 0;
                 }
             }
 
@@ -214,6 +220,7 @@ main {
         width: 100%;
 
         .pnlm-hotspot-base {
+
             &:hover {
                 cursor: pointer;
             }

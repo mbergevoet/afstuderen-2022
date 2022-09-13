@@ -139,12 +139,17 @@ main .sidebar .text-wrapper #sub-container span[data-begin] {
   cursor: pointer;
 }
 main .sidebar .text-wrapper #sub-container span[data-begin].speaking {
-  background-color: #FFFFCA;
-  box-shadow: 0px 0px 4px #FFFFCA;
+  background-color: #bcbcb7;
+  box-shadow: 0px 0px 4px #bcbcb7;
 }
 main .sidebar .text-wrapper #sub-container span[data-begin]:hover, main .sidebar .text-wrapper #sub-container span[data-begin]:focus {
   background-color: #d2d2c6;
   box-shadow: 0px 0px 4px #d2d2c6;
+}
+main .sidebar .text-wrapper #sub-container.visible {
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
 }
 main .sidebar .text-wrapper p {
   font-family: sans-serif;

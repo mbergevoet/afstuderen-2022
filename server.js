@@ -11,6 +11,7 @@ const path = require('path')
 // const { getCourseData } = require('./helpers/getCourseData');
 // const { addToJson } = require('./helpers/addToJson');
 // const { surveyCompleted } = require('./helpers/surveyCompleted');
+const { getCourseData } = require('./helpers/getInfoData');
 
 app
     .use(express.static(`${__dirname}/static`))
@@ -26,6 +27,7 @@ app
     // })
     .get('/', (req, res) => {
         res.render('pages/detail.ejs');
+        // res.render('pages/home.ejs');
     })
     .listen(port, function () {
         console.log(`Server listening at http://localhost:${port}`)

@@ -3,8 +3,7 @@ window.addEventListener('load', function (e) {
     try {
         var args = {
             text_element: document.getElementById('sub-container'),
-            audio_element: document.getElementById('audio-file'),
-            autofocus_current_word: document.getElementById('autofocus-current-word').checked
+            audio_element: document.getElementById('audio-file')
         };
 
         if (!args.audio_element.canPlayType) {
@@ -17,18 +16,9 @@ window.addEventListener('load', function (e) {
         }
 
         ReadAlong.init(args);
-
-        document.getElementById('autofocus-current-word').addEventListener('change', function (e) {
-            ReadAlong.autofocus_current_word = this.checked;
-        }, false);
-
-        // document.querySelector('.passage-audio').hidden = false;
-
-        document.querySelector('.autofocus-current-word').hidden = false;
     }
     catch (err) {
         console.error(err);
     }
     document.body.classList.add('initialized');
-    // document.querySelector('.loading').hidden = true;
 }, false);
