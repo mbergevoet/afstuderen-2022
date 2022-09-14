@@ -4,7 +4,7 @@
 
 A modern solution for individual history lessons at home or in the classroom.
 
-**Features**
+## :stars: Features
 
 You can choose a wide variety of history lessons and stories to learn about.
 
