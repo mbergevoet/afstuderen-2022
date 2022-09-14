@@ -44,5 +44,6 @@ npm run dev
 This runs the app in the development mode.
 Open [http://localhost:5000](http://localhost:5000) to view it in the browser.
 
-📑 License
-https://github.com/mbergevoet/afstuderen-2022/blob/master/LICENSE
+## :bookmark_tabs: License
+
+This repository uses the [MIT](https://github.com/mbergevoet/afstuderen-2022/blob/master/LICENSE) license. © Merlijn Bergevoet 2022
