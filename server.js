@@ -21,13 +21,13 @@ app
     // .get('/', (req, res) => {
     //     res.render('pages/home.ejs')
     // })
-    // .get('/home/', (req, res) => {
-    //     res.render('pages/home.ejs');
-    //     // res.render('pages/home.ejs', { subjects: surveyCompleted(req.params.id)[0], id: req.params.id })
-    // })
     .get('/', (req, res) => {
+        // res.render('pages/detail.ejs');
+        res.render('pages/home.ejs');
+    })
+    .get('/detail/', (req, res) => {
         res.render('pages/detail.ejs');
-        // res.render('pages/home.ejs');
+        // res.render('pages/home.ejs', { subjects: surveyCompleted(req.params.id)[0], id: req.params.id })
     })
     .listen(port, function () {
         console.log(`Server listening at http://localhost:${port}`)

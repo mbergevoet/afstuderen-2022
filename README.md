@@ -1,4 +1,4 @@
-# afstuderen-2022
+# Afstudeer project 2022
 
 ## :bulb: Concept
 

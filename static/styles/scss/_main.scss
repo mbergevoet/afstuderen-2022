@@ -8,7 +8,82 @@ $sm: 576px;
 // Colors
 $offwhite: #F5F5F5;
 
-main {
+.home-main {
+    position: relative;
+
+    .home-slider {
+        margin-top: 3em;
+        position: absolute;
+        right: 0;
+        width: 90%;
+        overflow: visible;
+
+        .slick-prev,
+        .slick-next {
+            position: absolute;
+            top: 40%;
+            height: 100px;
+            width: 40px;
+            border: none;
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: 40px;
+            background-color: transparent;
+            text-indent: 75px;
+            overflow: hidden;
+
+            &:hover {
+                cursor: pointer;
+            }
+        }
+
+        .slick-prev {
+            background-image: url(../../images/left-arrow.svg);
+            left: -25px;
+            z-index: 10;
+        }
+
+        .slick-next {
+            background-image: url(../../images/right-arrow.svg);
+            right: 25px;
+        }
+
+        .slick-track {
+            overflow: visible;
+
+            .slick-slide {
+                margin: 0 2em;
+                display: block;
+                position: relative;
+                height: 400px;
+                background-color: #e1e1e1;
+                background: linear-gradient(0deg, rgba(68, 111, 153, 1) 0%, rgba(68, 111, 153, 1) 6%, #e1e1e1 6%);
+                transition: 0.2s all;
+
+                &:hover {
+                    scale: 1.05;
+                }
+
+                a {
+                    text-decoration: none;
+                    color: black;
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+
+                    p {
+                        padding: 20% 1em 0 1em;
+                        width: 250px;
+                        font-size: 1.3em;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}
+
+.detail-main {
     display: flex;
     flex-direction: row;
     position: relative;

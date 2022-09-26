@@ -65,10 +65,18 @@ audio.addEventListener('loadedmetadata', () => {
 });
 
 audio.addEventListener('timeupdate', () => {
-    // console.log("timeupdate");
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
+    let timeStamp = Math.floor(audio.currentTime);
+
+    // if (timeStamp > 10 && timeStamp < 12) {
+    //     console.log('display question');
+    //     audio.pause();
+    //     playIcon.classList.add("hide");
+    //     pauseIcon.classList.remove("hide");
+    //     playState = 'pause';
+    // }
 });
 
 seekSlider.addEventListener('input', () => {
@@ -78,34 +86,30 @@ seekSlider.addEventListener('input', () => {
 
 function fetchJson(infoID) {
     const infoText = document.querySelector("#information-container > p");
-
+    const infoImage = document.querySelector("#information-container > img");
 
     let isEmpty = infoText.innerHTML;
     if (isEmpty == null || isEmpty == "") {
         fetch("../json/info.json")
             .then(res => res.json())
             .then(obj => obj.informationPoints.filter(item => item.id == infoID))
-            .then(arr => infoText.innerHTML = arr[0].infoText)
+            .then(arr => {
+                infoText.innerHTML = arr[0].infoText;
+                infoImage.src = arr[0].imagePath;
+            })
     }
     else {
         infoText.innerHTML = "";
+        infoImage.src = "";
     }
 }
 
-// document.addEventListener("DOMContentLoaded", () => {
 setTimeout(() => {
-
     const sideBar = document.querySelector("aside");
     const subtitleContainer = document.querySelector("#sub-container");
     const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
     const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
     const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
-    // const infoContainer = document.querySelector("#information-container");
-    const infoText = document.querySelector("#information-container > p");
-    // const imageContainer = document.querySelector("#information-container > img");
-    // console.log(infoText);
-
-    const textWrapper = document.querySelector(".text-wrapper");
 
     hotspotOne.addEventListener("click", () => {
         fetchJson("1")
@@ -119,6 +123,3 @@ setTimeout(() => {
         subtitleContainer.classList.toggle("visible");
     });
 }, 500);
-
-
-// });
