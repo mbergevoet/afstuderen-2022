@@ -6,21 +6,36 @@ const pauseIcon = document.querySelector('.pause-icon');
 const audio = document.querySelector('audio');
 const durationContainer = document.getElementById('duration');
 const currentTimeContainer = document.getElementById('current-time');
+const questionBackground = document.querySelector('.question-background');
+const questionContainerOne = document.querySelector('.question-container-one');
+const questionContainerTwo = document.querySelector('.question-container-two');
+const saveButton = document.querySelector('.save-button');
+const nextButton = document.querySelector('.next-button');
 let playState = 'play';
+let questionOne = false;
+let questionTwo = false;
 
 toggleButton.addEventListener("click", () => {
     if (playState == 'play') {
-        audio.play();
-        playIcon.classList.add("hide");
-        pauseIcon.classList.remove("hide");
-        playState = 'pause';
+        playAudio();
     } else {
-        audio.pause();
-        playIcon.classList.remove("hide");
-        pauseIcon.classList.add("hide");
-        playState = 'play';
+        pauseAudio();
     }
 });
+
+function playAudio() {
+    audio.play();
+    playIcon.classList.add("hide");
+    pauseIcon.classList.remove("hide");
+    playState = 'pause';
+}
+
+function pauseAudio() {
+    audio.pause();
+    playIcon.classList.remove("hide");
+    pauseIcon.classList.add("hide");
+    playState = 'play';
+}
 
 // Audio track functionality
 function showRangeProgress() {
@@ -50,6 +65,24 @@ function whilePlaying() {
     audioTrackWrapper.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
 }
 
+function pauseAfterThis(questionOneTimeStamp, questionTwoTimeStamp) {
+    let flooredCurrentTime = Math.floor(audio.currentTime);
+
+    if (flooredCurrentTime == questionOneTimeStamp && questionOne == false) {
+        pauseAudio();
+        questionOne = true;
+        questionBackground.classList.add("visible");
+        questionContainerOne.classList.add("visible");
+    }
+
+    if (flooredCurrentTime == questionTwoTimeStamp && questionTwo == false) {
+        pauseAudio();
+        questionTwo = true;
+        questionBackground.classList.add("visible");
+        questionContainerTwo.classList.add("visible");
+    }
+}
+
 if (audio.readyState > 0) {
     displayDuration();
     setSliderMax();
@@ -68,21 +101,23 @@ audio.addEventListener('timeupdate', () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
-    let timeStamp = Math.floor(audio.currentTime);
-
-    // if (timeStamp > 10 && timeStamp < 12) {
-    //     console.log('display question');
-    //     audio.pause();
-    //     playIcon.classList.add("hide");
-    //     pauseIcon.classList.remove("hide");
-    //     playState = 'pause';
-    // }
+    pauseAfterThis(5, 10);
 });
 
 seekSlider.addEventListener('input', () => {
     // console.log("input");
     showRangeProgress();
 });
+
+saveButton.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerOne.classList.remove('visible');
+})
+
+nextButton.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerTwo.classList.remove('visible');
+})
 
 function fetchJson(infoID) {
     const infoText = document.querySelector("#information-container > p");

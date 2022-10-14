@@ -22,12 +22,13 @@ app
     //     res.render('pages/home.ejs')
     // })
     .get('/', (req, res) => {
-        // res.render('pages/detail.ejs');
         res.render('pages/home.ejs');
+    })
+    .get('/difficulty/', (req, res) => {
+        res.render('pages/difficulty.ejs');
     })
     .get('/detail/', (req, res) => {
         res.render('pages/detail.ejs');
-        // res.render('pages/home.ejs', { subjects: surveyCompleted(req.params.id)[0], id: req.params.id })
     })
     .listen(port, function () {
         console.log(`Server listening at http://localhost:${port}`)

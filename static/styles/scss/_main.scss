@@ -14,8 +14,9 @@ $offwhite: #F5F5F5;
     .home-slider {
         margin-top: 3em;
         position: absolute;
-        right: 0;
-        width: 90%;
+        right: 3em;
+        left: 3em;
+        width: 100%;
         overflow: visible;
 
         .slick-prev,
@@ -45,7 +46,7 @@ $offwhite: #F5F5F5;
 
         .slick-next {
             background-image: url(../../images/right-arrow.svg);
-            right: 25px;
+            right: 75px;
         }
 
         .slick-track {
@@ -78,6 +79,76 @@ $offwhite: #F5F5F5;
                         font-weight: 700;
                     }
                 }
+            }
+        }
+    }
+}
+
+.difficulty-main {
+
+    h1 {
+        margin-top: 3em;
+        font-size: 1.5em;
+        font-weight: bold;
+        text-align: center;
+    }
+
+    div {
+        display: flex;
+        flex-direction: row;
+        margin-top: 3em;
+        position: absolute;
+        left: 50%;
+        -webkit-transform: translate(-50%);
+        transform: translate(-50%);
+
+
+        a {
+            display: block;
+            width: 250px;
+            height: 250px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.3em;
+            color: #000;
+            transition: 0.2s all;
+
+            &:hover {
+                scale: 1.05;
+                // opacity: 0.9;
+            }
+
+            span {
+                display: block;
+                text-align: center;
+                margin-top: 42%;
+
+            }
+        }
+
+        a:nth-child(1) {
+            background-color: #969E89;
+
+            &:hover {
+                background-color: #7e8470;
+            }
+        }
+
+        a:nth-child(2) {
+            background-color: #ECC290;
+            margin-right: 2em;
+            margin-left: 2em;
+
+            &:hover {
+                background-color: #c3a179;
+            }
+        }
+
+        a:nth-child(3) {
+            background-color: #CB8282;
+
+            &:hover {
+                background-color: #a96c6c;
             }
         }
     }
@@ -144,6 +215,12 @@ $offwhite: #F5F5F5;
                 }
             }
 
+            #information-container {
+                img {
+                    width: 100%;
+                }
+            }
+
             p {
                 font-family: sans-serif;
                 font-weight: bold;
@@ -160,7 +237,7 @@ $offwhite: #F5F5F5;
     }
 
     .audio-player {
-        z-index: 99;
+        z-index: 10;
         position: fixed;
         left: 1.5em;
         bottom: 1.5em;
@@ -298,6 +375,146 @@ $offwhite: #F5F5F5;
 
             &:hover {
                 cursor: pointer;
+            }
+        }
+    }
+
+    .question-background {
+        display: none;
+        position: absolute;
+        z-index: 20;
+        height: 100vh;
+        width: 100vw;
+        background-color: #484848c2;
+        backdrop-filter: blur(3px);
+
+        &.visible {
+            display: block;
+        }
+
+        .question-container-one,
+        .question-container-two {
+            background: #fff;
+            width: 100vw;
+            padding: 3em 0;
+            display: none;
+            flex-direction: row;
+            justify-content: center;
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
+
+            &.visible {
+                display: flex;
+            }
+
+
+            div {
+                min-width: 500px;
+                max-width: 900px;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-between;
+                margin-right: 3em;
+
+                &>p {
+                    font-size: 1.3em;
+                    padding-bottom: 1em;
+
+                    span {
+                        margin-left: -21px;
+                    }
+                }
+
+                textarea {
+                    max-width: 900px;
+                    height: 5em;
+                    font-size: 1.3em;
+                    font-family: sans-serif;
+                    resize: none;
+                    border: none;
+                    border-bottom: 3px solid #000;
+                }
+
+                label {
+                    margin-bottom: 1.5em;
+
+                    &:hover {
+                        cursor: pointer;
+                    }
+
+                    input {
+                        display: none;
+
+                        &:checked+p {
+                            span {
+                                background-color: #7E7E7E;
+                                color: white;
+                            }
+                        }
+                    }
+
+                    p {
+                        font-size: 1.3em;
+                        width: 100%;
+
+                        span {
+                            border-radius: 5px;
+                            background-color: #D3D3D3;
+                            margin-right: 0.5em;
+                            padding: 0.5em;
+
+                            &:nth-child(2) {
+                                display: inline-block;
+                                width: calc(100% - 62px);
+                            }
+                        }
+                    }
+                }
+            }
+
+            figure {
+                display: flex;
+                flex-direction: row;
+
+                img {
+                    height: 250px;
+                    width: auto;
+                }
+
+                figcaption {
+                    width: 190px;
+                    margin-left: 1em;
+                    font-size: 1.1em;
+                }
+            }
+
+            button {
+                height: 40px;
+                background-color: #7E7E7E;
+                border: none;
+                color: #fff;
+                font-size: 1.3em;
+
+                // padding: 1em;
+
+                &:hover {
+                    cursor: pointer;
+                }
+
+                &:active {
+                    background-color: #6a6a6a;
+                }
+
+                &.save-button {
+                    transform: translate(0px, 210px);
+                }
+
+                &.next-button {
+                    transform: translate(0px, 286px);
+                }
             }
         }
     }
