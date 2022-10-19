@@ -23,12 +23,12 @@ var ReadAlong = {
         this.words = Array.prototype.map.call(word_els, function (word_el, index) {
             var word = {
                 'begin': parseFloat(word_el.dataset.begin),
-                'end': parseFloat(word_el.dataset.end),
+                'dur': parseFloat(word_el.dataset.dur),
                 'element': word_el
             };
             word_el.tabIndex = 0; // to make it focusable/interactive
             word.index = index;
-            word.end = word.begin + word.end;
+            word.end = word.begin + word.dur;
             word_el.dataset.index = word.index;
             return word;
         });
@@ -179,17 +179,17 @@ var ReadAlong = {
         /**
          * Spacebar toggles playback
          */
-        document.addEventListener('keypress', function (e) {
-            if ((e.charCode || e.keyCode) === 32 /*Space*/) {
-                e.preventDefault();
-                if (that.audio_element.paused) {
-                    that.audio_element.play();
-                }
-                else {
-                    that.audio_element.pause();
-                }
-            }
-        }, false);
+        // document.addEventListener('keypress', function (e) {
+        //     if ((e.charCode || e.keyCode) === 32 /*Space*/) {
+        //         e.preventDefault();
+        //         if (that.audio_element.paused) {
+        //             that.audio_element.play();
+        //         }
+        //         else {
+        //             that.audio_element.pause();
+        //         }
+        //     }
+        // }, false);
 
         /**
          * First click handler sets currentTime to the word, and second click

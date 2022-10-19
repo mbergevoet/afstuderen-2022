@@ -263,12 +263,12 @@ table {
   cursor: pointer;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin].speaking {
-  background-color: #bcbcb7;
-  box-shadow: 0px 0px 4px #bcbcb7;
+  background-color: #dcdc38;
+  box-shadow: 0px 0px 4px #dcdc38;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:hover, .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:focus {
-  background-color: #d2d2c6;
-  box-shadow: 0px 0px 4px #d2d2c6;
+  background-color: #dcdc38;
+  box-shadow: 0px 0px 4px #dcdc38;
 }
 .detail-main .sidebar .text-wrapper #sub-container.visible {
   height: 0;
