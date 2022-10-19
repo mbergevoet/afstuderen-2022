@@ -30,6 +30,9 @@ app
     .get('/detail/', (req, res) => {
         res.render('pages/detail.ejs');
     })
+    .get('/detailtwo/', (req, res) => {
+        res.render('pages/detailtwo.ejs');
+    })
     .listen(port, function () {
         console.log(`Server listening at http://localhost:${port}`)
     })

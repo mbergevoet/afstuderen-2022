@@ -101,7 +101,7 @@ audio.addEventListener('timeupdate', () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
-    pauseAfterThis(5, 10);
+    // pauseAfterThis(5, 10);
 });
 
 seekSlider.addEventListener('input', () => {

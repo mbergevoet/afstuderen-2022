@@ -5,6 +5,8 @@ $lg: 992px;
 $md: 768px;
 $sm: 576px;
 
+//sass --watch scss:css
+
 // Colors
 $offwhite: #F5F5F5;
 
@@ -369,12 +371,66 @@ $offwhite: #F5F5F5;
 
     #panorama {
         height: 100vh;
-        width: 100%;
+        width: 80%;
+        position: absolute;
+        right: 0;
 
         .pnlm-hotspot-base {
 
             &:hover {
                 cursor: pointer;
+            }
+        }
+    }
+
+    .pick-side {
+        height: 100vh;
+        width: 80%;
+        position: absolute;
+        right: 0;
+        display: flex;
+        flex-direction: row;
+        backdrop-filter: blur(2px);
+
+        a {
+            display: block;
+            flex: 1;
+            height: inherit;
+            transition: 0.2s all;
+            color: #000;
+
+            &:hover {
+                cursor: pointer;
+
+                p {
+                    color: #fff;
+                }
+            }
+
+            p {
+                font-size: 1.5em;
+                position: absolute;
+                // left: 50%;
+                top: 50%;
+                margin-left: 17%;
+                transition: 0.2s all;
+            }
+        }
+
+        .go-left {
+            background-color: rgba(126, 126, 126, 0.8);
+
+            &:hover {
+                background-color: rgba(126, 126, 126, 0.95);
+
+            }
+        }
+
+        .go-right {
+            background-color: rgba(174, 174, 174, 0.8);
+
+            &:hover {
+                background-color: rgba(174, 174, 174, 0.95);
             }
         }
     }
@@ -396,7 +452,7 @@ $offwhite: #F5F5F5;
         .question-container-two {
             background: #fff;
             width: 100vw;
-            padding: 3em 0;
+            padding: 3em;
             display: none;
             flex-direction: row;
             justify-content: center;
@@ -493,12 +549,19 @@ $offwhite: #F5F5F5;
 
             button {
                 height: 40px;
+                position: relative;
                 background-color: #7E7E7E;
                 border: none;
                 color: #fff;
                 font-size: 1.3em;
 
-                // padding: 1em;
+                @media (min-width: 1536px) {
+                    width: 410px;
+                }
+
+                @media (min-width: 1717px) {
+                    width: 200px;
+                }
 
                 &:hover {
                     cursor: pointer;
