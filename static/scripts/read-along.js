@@ -61,6 +61,7 @@ var ReadAlong = {
 
         if (!word) {
             throw Error('Unable to find current word and we should always be able to.');
+            // console.log('oops')
         }
         return word;
     },
