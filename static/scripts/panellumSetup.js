@@ -40,8 +40,8 @@ pannellum.viewer('panorama', {
     "scenes": {
         "riverbank": {
             "title": "",
-            "pitch": 0.4,
-            "yaw": -336.9,
+            "pitch": -0.3,
+            "yaw": -252.1,
             "hfov": 110,
             "type": "equirectangular",
             "panorama": "../images/360-River-Four.jpg",
@@ -57,45 +57,51 @@ pannellum.viewer('panorama', {
                     "cssClass": "info-hotspot"
                 },
                 {
-                    "pitch": -1.3,
-                    "yaw": -101.3,
+                    "pitch": -0.1,
+                    "yaw": -206.1,
                     "cssClass": "scene-hotspot",
                     "sceneId": "river"
                 },
+                {
+                    "pitch": -1.3,
+                    "yaw": -101.3,
+                    "cssClass": "scene-hotspot",
+                    "sceneId": "field"
+                }
             ]
         },
 
         "river": {
             "title": "",
             "hfov": 110,
-            "pitch": -8.713732599745299,
-            "yaw": -0.16928288008426784,
+            "pitch": -8.7,
+            "yaw": -0.1,
             "type": "equirectangular",
-            "panorama": "../images/360-River-Two.jpg",
+            "panorama": "../images/360-River-Three.jpg",
             "hotSpots": [
                 {
-                    "pitch": -8.713732599745299,
-                    "yaw": -0.16928288008426784,
+                    "pitch": -8.7,
+                    "yaw": -0.1,
                     "type": "info",
-                    "text": "Metalen Brug"
+                    "cssClass": "info-hotspot"
                 },
 
             ]
         },
 
-        "rivertwo": {
+        "field": {
             "title": "",
             "hfov": 110,
-            "pitch": -8.713732599745299,
-            "yaw": -0.16928288008426784,
+            "pitch": -8.7,
+            "yaw": -0.1,
             "type": "equirectangular",
-            "panorama": "../images/360-River-Three.jpg",
+            "panorama": "../images/360-Field.jpg",
             "hotSpots": [
                 {
-                    "pitch": -8.713732599745299,
-                    "yaw": -0.16928288008426784,
+                    "pitch": -8.7,
+                    "yaw": -0.1,
                     "type": "info",
-                    "text": "Iets"
+                    "cssClass": "info-hotspot"
                 },
 
             ]

@@ -368,42 +368,57 @@ table {
   display: none;
 }
 .detail-main .sidebar .text-wrapper #sub-container,
-.detail-main .sidebar .text-wrapper #sub-container-two {
+.detail-main .sidebar .text-wrapper #sub-container-two,
+.detail-main .sidebar .text-wrapper #sub-container-three {
   font-weight: 500;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin],
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin] {
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin],
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin] {
   cursor: pointer;
   padding: 3px 0;
   background-color: rgba(255, 255, 255, 0);
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin].speaking,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].speaking {
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].speaking,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].speaking {
   color: #191462;
   background-color: rgba(255, 238, 35, 0.8);
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin].remove,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].remove {
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].remove,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].remove {
   display: none;
   visibility: hidden;
 }
-.detail-main .sidebar .text-wrapper #sub-container span[data-begin].show-sub,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].show-sub {
+.detail-main .sidebar .text-wrapper #sub-container span[data-begin].show-sub-two,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].show-sub-two,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].show-sub-two {
+  display: none;
+  visibility: hidden;
+}
+.detail-main .sidebar .text-wrapper #sub-container span[data-begin].show-sub-three,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].show-sub-three,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].show-sub-three {
   display: none;
   visibility: hidden;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin].paste,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].paste {
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].paste,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].paste {
   display: block;
   visibility: visible;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:hover, .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:focus,
 .detail-main .sidebar .text-wrapper #sub-container-two span[data-begin]:hover,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin]:focus {
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin]:focus,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin]:hover,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin]:focus {
   background-color: rgba(255, 238, 35, 0.8);
 }
 .detail-main .sidebar .text-wrapper #sub-container.visible,
-.detail-main .sidebar .text-wrapper #sub-container-two.visible {
+.detail-main .sidebar .text-wrapper #sub-container-two.visible,
+.detail-main .sidebar .text-wrapper #sub-container-three.visible {
   height: 0;
   visibility: hidden;
   opacity: 0;
@@ -677,11 +692,19 @@ table {
   display: block;
 }
 .detail-main .question-background .question-container-one,
-.detail-main .question-background .question-container-two {
+.detail-main .question-background .question-container-two,
+.detail-main .question-background .question-container-three,
+.detail-main .question-background .question-container-four,
+.detail-main .question-background .question-container-five,
+.detail-main .question-background .question-container-six,
+.detail-main .question-background .question-container-seven,
+.detail-main .question-background .question-container-eight,
+.detail-main .question-background .question-container-nine {
   background: #fff;
   width: 100vw;
   padding: 3em;
   display: none;
+  visibility: hidden;
   flex-direction: row;
   justify-content: center;
   position: absolute;
@@ -691,11 +714,26 @@ table {
   transform: translate(-50%, -50%);
 }
 .detail-main .question-background .question-container-one.visible,
-.detail-main .question-background .question-container-two.visible {
+.detail-main .question-background .question-container-two.visible,
+.detail-main .question-background .question-container-three.visible,
+.detail-main .question-background .question-container-four.visible,
+.detail-main .question-background .question-container-five.visible,
+.detail-main .question-background .question-container-six.visible,
+.detail-main .question-background .question-container-seven.visible,
+.detail-main .question-background .question-container-eight.visible,
+.detail-main .question-background .question-container-nine.visible {
   display: flex;
+  visibility: visible;
 }
 .detail-main .question-background .question-container-one div,
-.detail-main .question-background .question-container-two div {
+.detail-main .question-background .question-container-two div,
+.detail-main .question-background .question-container-three div,
+.detail-main .question-background .question-container-four div,
+.detail-main .question-background .question-container-five div,
+.detail-main .question-background .question-container-six div,
+.detail-main .question-background .question-container-seven div,
+.detail-main .question-background .question-container-eight div,
+.detail-main .question-background .question-container-nine div {
   min-width: 500px;
   max-width: 900px;
   display: flex;
@@ -704,16 +742,37 @@ table {
   margin-right: 3em;
 }
 .detail-main .question-background .question-container-one div > p,
-.detail-main .question-background .question-container-two div > p {
+.detail-main .question-background .question-container-two div > p,
+.detail-main .question-background .question-container-three div > p,
+.detail-main .question-background .question-container-four div > p,
+.detail-main .question-background .question-container-five div > p,
+.detail-main .question-background .question-container-six div > p,
+.detail-main .question-background .question-container-seven div > p,
+.detail-main .question-background .question-container-eight div > p,
+.detail-main .question-background .question-container-nine div > p {
   font-size: 1.3em;
   padding-bottom: 1em;
 }
 .detail-main .question-background .question-container-one div > p span,
-.detail-main .question-background .question-container-two div > p span {
+.detail-main .question-background .question-container-two div > p span,
+.detail-main .question-background .question-container-three div > p span,
+.detail-main .question-background .question-container-four div > p span,
+.detail-main .question-background .question-container-five div > p span,
+.detail-main .question-background .question-container-six div > p span,
+.detail-main .question-background .question-container-seven div > p span,
+.detail-main .question-background .question-container-eight div > p span,
+.detail-main .question-background .question-container-nine div > p span {
   margin-left: -21px;
 }
 .detail-main .question-background .question-container-one div textarea,
-.detail-main .question-background .question-container-two div textarea {
+.detail-main .question-background .question-container-two div textarea,
+.detail-main .question-background .question-container-three div textarea,
+.detail-main .question-background .question-container-four div textarea,
+.detail-main .question-background .question-container-five div textarea,
+.detail-main .question-background .question-container-six div textarea,
+.detail-main .question-background .question-container-seven div textarea,
+.detail-main .question-background .question-container-eight div textarea,
+.detail-main .question-background .question-container-nine div textarea {
   max-width: 900px;
   height: 5em;
   font-size: 1.3em;
@@ -723,57 +782,134 @@ table {
   border-bottom: 3px solid #000;
 }
 .detail-main .question-background .question-container-one div label,
-.detail-main .question-background .question-container-two div label {
+.detail-main .question-background .question-container-two div label,
+.detail-main .question-background .question-container-three div label,
+.detail-main .question-background .question-container-four div label,
+.detail-main .question-background .question-container-five div label,
+.detail-main .question-background .question-container-six div label,
+.detail-main .question-background .question-container-seven div label,
+.detail-main .question-background .question-container-eight div label,
+.detail-main .question-background .question-container-nine div label {
   margin-bottom: 1.5em;
 }
 .detail-main .question-background .question-container-one div label:hover,
-.detail-main .question-background .question-container-two div label:hover {
+.detail-main .question-background .question-container-two div label:hover,
+.detail-main .question-background .question-container-three div label:hover,
+.detail-main .question-background .question-container-four div label:hover,
+.detail-main .question-background .question-container-five div label:hover,
+.detail-main .question-background .question-container-six div label:hover,
+.detail-main .question-background .question-container-seven div label:hover,
+.detail-main .question-background .question-container-eight div label:hover,
+.detail-main .question-background .question-container-nine div label:hover {
   cursor: pointer;
 }
 .detail-main .question-background .question-container-one div label input,
-.detail-main .question-background .question-container-two div label input {
+.detail-main .question-background .question-container-two div label input,
+.detail-main .question-background .question-container-three div label input,
+.detail-main .question-background .question-container-four div label input,
+.detail-main .question-background .question-container-five div label input,
+.detail-main .question-background .question-container-six div label input,
+.detail-main .question-background .question-container-seven div label input,
+.detail-main .question-background .question-container-eight div label input,
+.detail-main .question-background .question-container-nine div label input {
   display: none;
 }
 .detail-main .question-background .question-container-one div label input:checked + p span,
-.detail-main .question-background .question-container-two div label input:checked + p span {
+.detail-main .question-background .question-container-two div label input:checked + p span,
+.detail-main .question-background .question-container-three div label input:checked + p span,
+.detail-main .question-background .question-container-four div label input:checked + p span,
+.detail-main .question-background .question-container-five div label input:checked + p span,
+.detail-main .question-background .question-container-six div label input:checked + p span,
+.detail-main .question-background .question-container-seven div label input:checked + p span,
+.detail-main .question-background .question-container-eight div label input:checked + p span,
+.detail-main .question-background .question-container-nine div label input:checked + p span {
   background-color: #7E7E7E;
   color: white;
 }
 .detail-main .question-background .question-container-one div label p,
-.detail-main .question-background .question-container-two div label p {
+.detail-main .question-background .question-container-two div label p,
+.detail-main .question-background .question-container-three div label p,
+.detail-main .question-background .question-container-four div label p,
+.detail-main .question-background .question-container-five div label p,
+.detail-main .question-background .question-container-six div label p,
+.detail-main .question-background .question-container-seven div label p,
+.detail-main .question-background .question-container-eight div label p,
+.detail-main .question-background .question-container-nine div label p {
   font-size: 1.3em;
   width: 100%;
 }
 .detail-main .question-background .question-container-one div label p span,
-.detail-main .question-background .question-container-two div label p span {
+.detail-main .question-background .question-container-two div label p span,
+.detail-main .question-background .question-container-three div label p span,
+.detail-main .question-background .question-container-four div label p span,
+.detail-main .question-background .question-container-five div label p span,
+.detail-main .question-background .question-container-six div label p span,
+.detail-main .question-background .question-container-seven div label p span,
+.detail-main .question-background .question-container-eight div label p span,
+.detail-main .question-background .question-container-nine div label p span {
   border-radius: 5px;
   background-color: #D3D3D3;
   margin-right: 0.5em;
   padding: 0.5em;
 }
 .detail-main .question-background .question-container-one div label p span:nth-child(2),
-.detail-main .question-background .question-container-two div label p span:nth-child(2) {
+.detail-main .question-background .question-container-two div label p span:nth-child(2),
+.detail-main .question-background .question-container-three div label p span:nth-child(2),
+.detail-main .question-background .question-container-four div label p span:nth-child(2),
+.detail-main .question-background .question-container-five div label p span:nth-child(2),
+.detail-main .question-background .question-container-six div label p span:nth-child(2),
+.detail-main .question-background .question-container-seven div label p span:nth-child(2),
+.detail-main .question-background .question-container-eight div label p span:nth-child(2),
+.detail-main .question-background .question-container-nine div label p span:nth-child(2) {
   display: inline-block;
   width: calc(100% - 63px);
 }
 .detail-main .question-background .question-container-one figure,
-.detail-main .question-background .question-container-two figure {
+.detail-main .question-background .question-container-two figure,
+.detail-main .question-background .question-container-three figure,
+.detail-main .question-background .question-container-four figure,
+.detail-main .question-background .question-container-five figure,
+.detail-main .question-background .question-container-six figure,
+.detail-main .question-background .question-container-seven figure,
+.detail-main .question-background .question-container-eight figure,
+.detail-main .question-background .question-container-nine figure {
   display: flex;
   flex-direction: row;
 }
 .detail-main .question-background .question-container-one figure img,
-.detail-main .question-background .question-container-two figure img {
+.detail-main .question-background .question-container-two figure img,
+.detail-main .question-background .question-container-three figure img,
+.detail-main .question-background .question-container-four figure img,
+.detail-main .question-background .question-container-five figure img,
+.detail-main .question-background .question-container-six figure img,
+.detail-main .question-background .question-container-seven figure img,
+.detail-main .question-background .question-container-eight figure img,
+.detail-main .question-background .question-container-nine figure img {
   height: 250px;
   width: auto;
 }
 .detail-main .question-background .question-container-one figure figcaption,
-.detail-main .question-background .question-container-two figure figcaption {
+.detail-main .question-background .question-container-two figure figcaption,
+.detail-main .question-background .question-container-three figure figcaption,
+.detail-main .question-background .question-container-four figure figcaption,
+.detail-main .question-background .question-container-five figure figcaption,
+.detail-main .question-background .question-container-six figure figcaption,
+.detail-main .question-background .question-container-seven figure figcaption,
+.detail-main .question-background .question-container-eight figure figcaption,
+.detail-main .question-background .question-container-nine figure figcaption {
   width: 190px;
   margin-left: 1em;
   font-size: 1.1em;
 }
 .detail-main .question-background .question-container-one button,
-.detail-main .question-background .question-container-two button {
+.detail-main .question-background .question-container-two button,
+.detail-main .question-background .question-container-three button,
+.detail-main .question-background .question-container-four button,
+.detail-main .question-background .question-container-five button,
+.detail-main .question-background .question-container-six button,
+.detail-main .question-background .question-container-seven button,
+.detail-main .question-background .question-container-eight button,
+.detail-main .question-background .question-container-nine button {
   height: fit-content;
   display: inline-block;
   position: relative;
@@ -785,30 +921,72 @@ table {
 }
 @media (min-width: 1536px) {
   .detail-main .question-background .question-container-one button,
-.detail-main .question-background .question-container-two button {
+.detail-main .question-background .question-container-two button,
+.detail-main .question-background .question-container-three button,
+.detail-main .question-background .question-container-four button,
+.detail-main .question-background .question-container-five button,
+.detail-main .question-background .question-container-six button,
+.detail-main .question-background .question-container-seven button,
+.detail-main .question-background .question-container-eight button,
+.detail-main .question-background .question-container-nine button {
     width: 441px;
   }
 }
 @media (min-width: 1717px) {
   .detail-main .question-background .question-container-one button,
-.detail-main .question-background .question-container-two button {
+.detail-main .question-background .question-container-two button,
+.detail-main .question-background .question-container-three button,
+.detail-main .question-background .question-container-four button,
+.detail-main .question-background .question-container-five button,
+.detail-main .question-background .question-container-six button,
+.detail-main .question-background .question-container-seven button,
+.detail-main .question-background .question-container-eight button,
+.detail-main .question-background .question-container-nine button {
     width: 200px;
   }
 }
 .detail-main .question-background .question-container-one button:hover,
-.detail-main .question-background .question-container-two button:hover {
+.detail-main .question-background .question-container-two button:hover,
+.detail-main .question-background .question-container-three button:hover,
+.detail-main .question-background .question-container-four button:hover,
+.detail-main .question-background .question-container-five button:hover,
+.detail-main .question-background .question-container-six button:hover,
+.detail-main .question-background .question-container-seven button:hover,
+.detail-main .question-background .question-container-eight button:hover,
+.detail-main .question-background .question-container-nine button:hover {
   cursor: pointer;
 }
 .detail-main .question-background .question-container-one button:active,
-.detail-main .question-background .question-container-two button:active {
+.detail-main .question-background .question-container-two button:active,
+.detail-main .question-background .question-container-three button:active,
+.detail-main .question-background .question-container-four button:active,
+.detail-main .question-background .question-container-five button:active,
+.detail-main .question-background .question-container-six button:active,
+.detail-main .question-background .question-container-seven button:active,
+.detail-main .question-background .question-container-eight button:active,
+.detail-main .question-background .question-container-nine button:active {
   background-color: #6a6a6a;
 }
 .detail-main .question-background .question-container-one button.save-button,
-.detail-main .question-background .question-container-two button.save-button {
+.detail-main .question-background .question-container-two button.save-button,
+.detail-main .question-background .question-container-three button.save-button,
+.detail-main .question-background .question-container-four button.save-button,
+.detail-main .question-background .question-container-five button.save-button,
+.detail-main .question-background .question-container-six button.save-button,
+.detail-main .question-background .question-container-seven button.save-button,
+.detail-main .question-background .question-container-eight button.save-button,
+.detail-main .question-background .question-container-nine button.save-button {
   transform: translate(0px, 207px);
 }
 .detail-main .question-background .question-container-one button.next-button,
-.detail-main .question-background .question-container-two button.next-button {
+.detail-main .question-background .question-container-two button.next-button,
+.detail-main .question-background .question-container-three button.next-button,
+.detail-main .question-background .question-container-four button.next-button,
+.detail-main .question-background .question-container-five button.next-button,
+.detail-main .question-background .question-container-six button.next-button,
+.detail-main .question-background .question-container-seven button.next-button,
+.detail-main .question-background .question-container-eight button.next-button,
+.detail-main .question-background .question-container-nine button.next-button {
   width: 200px;
   transform: translate(0px, 286px);
 }

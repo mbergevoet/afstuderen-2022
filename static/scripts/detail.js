@@ -12,12 +12,35 @@ const currentTimeContainer = document.getElementById('current-time');
 const questionBackground = document.querySelector('.question-background');
 const questionContainerOne = document.querySelector('.question-container-one');
 const questionContainerTwo = document.querySelector('.question-container-two');
-const saveButton = document.querySelector('.save-button');
-const nextButton = document.querySelector('.next-button');
-const pickSide = document.querySelector('.pick-side');
-let playState = 'play';
+const questionContainerThree = document.querySelector('.question-container-three');
+const questionContainerFour = document.querySelector('.question-container-four');
+const questionContainerFive = document.querySelector('.question-container-five');
+const questionContainerSix = document.querySelector('.question-container-six');
+const questionContainerSeven = document.querySelector('.question-container-seven');
+const questionContainerEight = document.querySelector('.question-container-eight');
+const questionContainerNine = document.querySelector('.question-container-nine');
+const btnOne = document.querySelector('.btn-one');
+const btnTwo = document.querySelector('.btn-two');
+const btnThree = document.querySelector('.btn-three');
+const btnFour = document.querySelector('.btn-four');
+const btnFive = document.querySelector('.btn-five');
+const btnSix = document.querySelector('.btn-six');
+const btnSeven = document.querySelector('.btn-seven');
+const btnEight = document.querySelector('.btn-eight');
+const btnNine = document.querySelector('.btn-nine');
+
 let questionOne = false;
 let questionTwo = false;
+let questionThree = false;
+let questionFour = false;
+let questionFive = false;
+let questionSix = false;
+let questionSeven = false;
+let questionEight = false;
+let questionNine = false;
+
+let sceneNumber = 1;
+let playState = 'play';
 
 const closeInfo = document.querySelector(".close-info");
 
@@ -81,27 +104,28 @@ function whilePlaying() {
     audioTrackWrapper.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
 }
 
-function pauseAfterThis(questionOneTimeStamp, questionTwoTimeStamp) {
+function showQuestions(stampOne, stampTwo, stampThree, oneDomElement, twoDomElement, threeDomElement) {
     let flooredCurrentTime = Math.floor(audio.currentTime);
 
-    if (flooredCurrentTime == questionOneTimeStamp && questionOne == false) {
+    if (flooredCurrentTime == stampOne && questionOne == false) {
         pauseAudio();
         questionOne = true;
         questionBackground.classList.add("visible");
-        questionContainerOne.classList.add("visible");
+        oneDomElement.classList.add("visible");
     }
-
-    if (flooredCurrentTime == questionTwoTimeStamp && questionTwo == false) {
+    if (flooredCurrentTime == stampTwo && questionTwo == false) {
         pauseAudio();
         questionTwo = true;
         questionBackground.classList.add("visible");
-        questionContainerTwo.classList.add("visible");
+        twoDomElement.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampThree && questionThree == false) {
+        pauseAudio();
+        questionThree = true;
+        questionBackground.classList.add("visible");
+        threeDomElement.classList.add("visible");
     }
 }
-
-// function pickDirection(timeStamp) {
-//     Math.floor(audio.currentTime);
-// }
 
 if (audio.readyState > 0) {
     displayDuration();
@@ -121,28 +145,67 @@ audio.addEventListener('timeupdate', () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
-    // pauseAfterThis(18, 30);
-    // pauseAfterThis(2, 3);
-});
 
-// audio.addEventListener('ended', () => {
-//     // console.log(pickSide)
-//     pickSide.classList.add('visible');
-//     console.log('ended')
-// });
+    if (sceneNumber == 1) {
+        showQuestions(3, 9, 18, questionContainerOne, questionContainerTwo, questionContainerThree);
+    }
+
+    if (sceneNumber == 2) {
+        showQuestions(2, 7, 12, questionContainerFour, questionContainerFive, questionContainerSix);
+    }
+
+    if (sceneNumber == 3) {
+        showQuestions(5, 7, 12, questionContainerSeven, questionContainerEight, questionContainerNine);
+    }
+});
 
 seekSlider.addEventListener('input', () => {
     showRangeProgress();
 });
 
-saveButton.addEventListener('click', () => {
+btnOne.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerOne.classList.remove('visible');
 })
 
-nextButton.addEventListener('click', () => {
+btnTwo.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerTwo.classList.remove('visible');
+})
+
+btnThree.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerThree.classList.remove('visible');
+})
+
+btnFour.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerFive.classList.remove('visible');
+})
+
+btnFive.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerFive.classList.remove('visible');
+})
+
+btnSix.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerSix.classList.remove('visible');
+})
+
+btnSeven.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerSeven.classList.remove('visible');
+})
+
+btnEight.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerEight.classList.remove('visible');
+})
+
+btnNine.addEventListener('click', () => {
+    questionBackground.classList.remove('visible');
+    questionContainerNine.classList.remove('visible');
 })
 
 const infoImage = document.querySelector("#info-container > img");
@@ -162,24 +225,17 @@ function fetchJson(infoID) {
         })
 }
 
-function fetchSubtitles(subID) {
-    fetch("../json/subtitles.json")
-        .then(res => res.json())
-        .then(obj => obj.subtitles.filter(item => item.id == subID))
-        .then(arr => {
-            subtitleContainer.innerHTML = arr[0].subtitleWords;
-        })
-}
-
 setTimeout(() => {
     const sideBar = document.querySelector("aside");
     const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
     const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
     const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
-    const switchScene = hotspotContainer.getElementsByTagName("div")[2];
+    const switchToSceneTwo = hotspotContainer.getElementsByTagName("div")[2];
+    const switchToSceneThree = hotspotContainer.getElementsByTagName("div")[3];
 
     const subsToHide = document.querySelectorAll(".hide-sub");
-    const subsToShow = document.querySelectorAll(".show-sub");
+    const subsToShowTwo = document.querySelectorAll(".show-sub-two");
+    const subsToShowThree = document.querySelectorAll(".show-sub-three");
 
     hotspotOne.addEventListener("click", () => {
         fetchJson("1")
@@ -205,26 +261,38 @@ setTimeout(() => {
     });
 
     audio.addEventListener('ended', () => {
-        switchScene.classList.add('pop');
+        switchToSceneTwo.classList.add('pop');
+        switchToSceneThree.classList.add('pop');
         pauseAudio();
     });
 
-    switchScene.addEventListener('click', () => {
+    switchToSceneTwo.addEventListener('click', () => {
+        sceneNumber = 2;
         audioSource.src = "audio/heidebijermelo.mp3";
         audio.load();
 
-        subsToShow.forEach(i => {
+        subsToShowTwo.forEach(i => {
             i.classList.add('paste');
         })
 
-        setTimeout(() => {
-            subsToHide.forEach(i => {
-                i.classList.add('remove');
-            });
-        }, 500);
-
-        // subtitleContainer.innerHTML = "";
-        // fetchSubtitles("1")
+        subsToHide.forEach(i => {
+            i.classList.add('remove');
+        });
     });
+
+    switchToSceneThree.addEventListener('click', () => {
+        sceneNumber = 3;
+        audioSource.src = "audio/heidebijermelo.mp3";
+        audio.load();
+
+        subsToShowThree.forEach(i => {
+            i.classList.add('paste');
+        })
+
+        subsToHide.forEach(i => {
+            i.classList.add('remove');
+        });
+    });
+
 }, 200);
 
