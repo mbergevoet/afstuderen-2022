@@ -63,10 +63,10 @@ pannellum.viewer('panorama', {
                     "sceneId": "river"
                 },
                 {
-                    "pitch": -1.3,
-                    "yaw": -101.3,
+                    "pitch": -0.01,
+                    "yaw": -341.8,
                     "cssClass": "scene-hotspot",
-                    "sceneId": "field"
+                    "sceneId": "river"
                 }
             ]
         },
@@ -80,12 +80,23 @@ pannellum.viewer('panorama', {
             "panorama": "../images/360-River-Three.jpg",
             "hotSpots": [
                 {
-                    "pitch": -8.7,
-                    "yaw": -0.1,
+                    "pitch": -6.3,
+                    "yaw": -68.4,
                     "type": "info",
                     "cssClass": "info-hotspot"
                 },
-
+                {
+                    "pitch": 1.8,
+                    "yaw": 177.7,
+                    "type": "info",
+                    "cssClass": "info-hotspot"
+                },
+                {
+                    "pitch": -0.01,
+                    "yaw": -341.8,
+                    "cssClass": "scene-hotspot",
+                    "sceneId": "field"
+                }
             ]
         },
 

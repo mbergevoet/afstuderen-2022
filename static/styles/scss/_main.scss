@@ -330,6 +330,18 @@ $offwhite: #F5F5F5;
             #sub-container-two,
             #sub-container-three {
                 font-weight: 500;
+                line-height: 1.5em;
+
+                .divider {
+                    display: block;
+                    height: 2em;
+                    width: 100%;
+
+                    &.hidden {
+                        display: none;
+                        visibility: hidden;
+                    }
+                }
 
                 span[data-begin] {
                     cursor: pointer;
@@ -343,24 +355,15 @@ $offwhite: #F5F5F5;
                         // box-shadow: 0px 0px 4px rgb(220, 220, 56);
                     }
 
-                    &.remove {
-                        display: none;
-                        visibility: hidden;
-                    }
+                    &.subs-scene-one,
+                    &.subs-scene-two,
+                    &.subs-scene-three {
+                        display: inline-block;
 
-                    &.show-sub-two {
-                        display: none;
-                        visibility: hidden;
-                    }
-
-                    &.show-sub-three {
-                        display: none;
-                        visibility: hidden;
-                    }
-
-                    &.paste {
-                        display: block;
-                        visibility: visible;
+                        &.hidden {
+                            display: none;
+                            visibility: hidden;
+                        }
                     }
 
                     &:hover,
@@ -375,6 +378,10 @@ $offwhite: #F5F5F5;
                     height: 0;
                     visibility: hidden;
                     opacity: 0;
+                }
+
+                &.hidden {
+                    visibility: hidden;
                 }
             }
 
@@ -430,12 +437,18 @@ $offwhite: #F5F5F5;
                 }
             }
 
+            .info-container {
+                p {
+                    margin: 1em 0;
+                }
+            }
+
             p {
                 font-weight: 500;
                 font-size: 1.3em;
-                margin: 1em 0;
+                // margin: 1em 0;
                 line-height: 1.4em;
-                text-align: justify;
+                // text-align: justify;
 
                 &:first-child {
                     margin: 0 0 1em 0;

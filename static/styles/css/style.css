@@ -371,6 +371,20 @@ table {
 .detail-main .sidebar .text-wrapper #sub-container-two,
 .detail-main .sidebar .text-wrapper #sub-container-three {
   font-weight: 500;
+  line-height: 1.5em;
+}
+.detail-main .sidebar .text-wrapper #sub-container .divider,
+.detail-main .sidebar .text-wrapper #sub-container-two .divider,
+.detail-main .sidebar .text-wrapper #sub-container-three .divider {
+  display: block;
+  height: 2em;
+  width: 100%;
+}
+.detail-main .sidebar .text-wrapper #sub-container .divider.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-two .divider.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-three .divider.hidden {
+  display: none;
+  visibility: hidden;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin],
 .detail-main .sidebar .text-wrapper #sub-container-two span[data-begin],
@@ -385,29 +399,24 @@ table {
   color: #191462;
   background-color: rgba(255, 238, 35, 0.8);
 }
-.detail-main .sidebar .text-wrapper #sub-container span[data-begin].remove,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].remove,
-.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].remove {
+.detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-one, .detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-two, .detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-three,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-one,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-two,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-three,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-one,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-two,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-three {
+  display: inline-block;
+}
+.detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-one.hidden, .detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-two.hidden, .detail-main .sidebar .text-wrapper #sub-container span[data-begin].subs-scene-three.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-one.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-two.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].subs-scene-three.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-one.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-two.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].subs-scene-three.hidden {
   display: none;
   visibility: hidden;
-}
-.detail-main .sidebar .text-wrapper #sub-container span[data-begin].show-sub-two,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].show-sub-two,
-.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].show-sub-two {
-  display: none;
-  visibility: hidden;
-}
-.detail-main .sidebar .text-wrapper #sub-container span[data-begin].show-sub-three,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].show-sub-three,
-.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].show-sub-three {
-  display: none;
-  visibility: hidden;
-}
-.detail-main .sidebar .text-wrapper #sub-container span[data-begin].paste,
-.detail-main .sidebar .text-wrapper #sub-container-two span[data-begin].paste,
-.detail-main .sidebar .text-wrapper #sub-container-three span[data-begin].paste {
-  display: block;
-  visibility: visible;
 }
 .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:hover, .detail-main .sidebar .text-wrapper #sub-container span[data-begin]:focus,
 .detail-main .sidebar .text-wrapper #sub-container-two span[data-begin]:hover,
@@ -422,6 +431,11 @@ table {
   height: 0;
   visibility: hidden;
   opacity: 0;
+}
+.detail-main .sidebar .text-wrapper #sub-container.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-two.hidden,
+.detail-main .sidebar .text-wrapper #sub-container-three.hidden {
+  visibility: hidden;
 }
 .detail-main .sidebar .text-wrapper #info-container {
   position: relative;
@@ -465,12 +479,13 @@ table {
   font-size: 1.4em;
   margin-top: 1em;
 }
+.detail-main .sidebar .text-wrapper .info-container p {
+  margin: 1em 0;
+}
 .detail-main .sidebar .text-wrapper p {
   font-weight: 500;
   font-size: 1.3em;
-  margin: 1em 0;
   line-height: 1.4em;
-  text-align: justify;
 }
 .detail-main .sidebar .text-wrapper p:first-child {
   margin: 0 0 1em 0;

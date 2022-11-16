@@ -145,9 +145,11 @@ audio.addEventListener('timeupdate', () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
+    let currentWord = document.querySelector("span.speaking");
+    currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
 
     if (sceneNumber == 1) {
-        showQuestions(3, 9, 18, questionContainerOne, questionContainerTwo, questionContainerThree);
+        showQuestions(20, 40, 60, questionContainerOne, questionContainerTwo, questionContainerThree);
     }
 
     if (sceneNumber == 2) {
@@ -208,11 +210,14 @@ btnNine.addEventListener('click', () => {
     questionContainerNine.classList.remove('visible');
 })
 
+const sideBar = document.querySelector("aside");
 const infoImage = document.querySelector("#info-container > img");
 const infoHeading = document.querySelector("#info-container > h1");
 const infoText = document.querySelector("#info-container > p");
 
 const subtitleContainer = document.querySelector("#sub-container");
+const subtitleContainerTwo = document.querySelector("#sub-container-two");
+const subtitleContainerthree = document.querySelector("#sub-container-three");
 
 function fetchJson(infoID) {
     fetch("../json/info.json")
@@ -225,74 +230,134 @@ function fetchJson(infoID) {
         })
 }
 
+function displayInfo(DOM_Container) {
+    sideBar.classList.add("grow");
+    DOM_Container.classList.add("visible");
+    closeInfo.classList.add("visible");
+}
+
+function removeInfo(DOM_Container) {
+    infoImage.src = "";
+    infoHeading.innerHTML = "";
+    infoText.innerHTML = "";
+    sideBar.classList.remove("grow");
+    DOM_Container.classList.remove("visible");
+    closeInfo.classList.remove("visible");
+}
+
 setTimeout(() => {
-    const sideBar = document.querySelector("aside");
     const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
-    const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
-    const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
-    const switchToSceneTwo = hotspotContainer.getElementsByTagName("div")[2];
-    const switchToSceneThree = hotspotContainer.getElementsByTagName("div")[3];
+    const switchSceneTwoHotspots = hotspotContainer.querySelectorAll(".scene-hotspot");
+    // console.log(testthing);
+    // const switchToSceneTwo = hotspotContainer.getElementsByTagName("div")[2];
+    // const switchToSceneTwoAlso = hotspotContainer.getElementsByTagName("div")[3];
 
-    const subsToHide = document.querySelectorAll(".hide-sub");
-    const subsToShowTwo = document.querySelectorAll(".show-sub-two");
-    const subsToShowThree = document.querySelectorAll(".show-sub-three");
+    const subSceneOne = document.querySelectorAll(".subs-scene-one");
+    const subSceneTwo = document.querySelectorAll(".subs-scene-two");
+    const subSceneThree = document.querySelectorAll(".subs-scene-three");
 
-    hotspotOne.addEventListener("click", () => {
-        fetchJson("1")
-        sideBar.classList.add("grow");
-        subtitleContainer.classList.add("visible");
-        closeInfo.classList.add("visible");
-    });
+    if (sceneNumber == 1) {
+        const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
+        const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
 
-    closeInfo.addEventListener("click", () => {
-        infoImage.src = "";
-        infoHeading.innerHTML = "";
-        infoText.innerHTML = "";
-        sideBar.classList.remove("grow");
-        subtitleContainer.classList.remove("visible");
-        closeInfo.classList.remove("visible");
-    });
+        hotspotOne.addEventListener("click", () => {
+            fetchJson("1");
+            displayInfo(subtitleContainer);
+        });
 
-    hotspotTwo.addEventListener("click", () => {
-        fetchJson("2")
-        sideBar.classList.add("grow");
-        subtitleContainer.classList.add("visible");
-        closeInfo.classList.add("visible");
-    });
+        hotspotTwo.addEventListener("click", () => {
+            fetchJson("2")
+            displayInfo(subtitleContainer);
+        });
+
+        closeInfo.addEventListener("click", () => {
+            removeInfo(subtitleContainer);
+        });
+    }
 
     audio.addEventListener('ended', () => {
-        switchToSceneTwo.classList.add('pop');
-        switchToSceneThree.classList.add('pop');
+        switchSceneTwoHotspots.forEach(i => {
+            i.classList.add('pop');
+        });
+        // switchToSceneTwo.classList.add('pop');
+        // switchToSceneTwoAlso.classList.add('pop');
         pauseAudio();
     });
 
-    switchToSceneTwo.addEventListener('click', () => {
-        sceneNumber = 2;
-        audioSource.src = "audio/heidebijermelo.mp3";
-        audio.load();
+    switchSceneTwoHotspots.forEach(sceneSwitch => {
 
-        subsToShowTwo.forEach(i => {
-            i.classList.add('paste');
-        })
+        sceneSwitch.addEventListener('click', () => {
+            sceneNumber = 2;
+            console.log('scene ' + sceneNumber)
+            audioSource.src = "audio/scripttweedescene.mp3";
+            audio.load();
+            subtitleContainer.classList.add('hidden');
 
-        subsToHide.forEach(i => {
-            i.classList.add('remove');
+            subSceneOne.forEach(i => {
+                i.classList.add('hidden');
+            })
+
+            subSceneTwo.forEach(i => {
+                i.classList.remove('hidden');
+            });
+
+            setTimeout(() => {
+                if (sceneNumber == 2) {
+                    const sceneTwoHotspotOne = hotspotContainer.getElementsByTagName("div")[0];
+                    const sceneTwoHotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
+                    const switchToSceneThree = hotspotContainer.getElementsByTagName("div")[2];
+
+                    audio.addEventListener('ended', () => {
+                        switchToSceneThree.classList.add('pop');
+                        pauseAudio();
+                    });
+
+                    sceneTwoHotspotOne.addEventListener("click", () => {
+                        fetchJson("3");
+                        displayInfo(subtitleContainerTwo);
+                    });
+
+                    sceneTwoHotspotTwo.addEventListener("click", () => {
+                        fetchJson("4");
+                        displayInfo(subtitleContainerTwo);
+                    });
+
+                    closeInfo.addEventListener("click", () => {
+                        removeInfo(subtitleContainerTwo);
+                    });
+
+
+                    switchToSceneThree.addEventListener('click', () => {
+                        sceneNumber = 3;
+                        audioSource.src = "audio/scriptderdescene.mp3";
+                        audio.load();
+
+                        subSceneTwo.forEach(i => {
+                            i.classList.add('hidden');
+                        });
+
+                        subSceneThree.forEach(i => {
+                            i.classList.remove('hidden');
+                        });
+                    });
+                };
+            }, 200);
         });
     });
 
-    switchToSceneThree.addEventListener('click', () => {
-        sceneNumber = 3;
-        audioSource.src = "audio/heidebijermelo.mp3";
-        audio.load();
+    // switchToSceneThree.addEventListener('click', () => {
+    //     sceneNumber = 3;
+    //     audioSource.src = "audio/scriptderdescene.mp3";
+    //     audio.load();
 
-        subsToShowThree.forEach(i => {
-            i.classList.add('paste');
-        })
+    //     subsToShowThree.forEach(i => {
+    //         i.classList.add('paste');
+    //     })
 
-        subsToHide.forEach(i => {
-            i.classList.add('remove');
-        });
-    });
+    //     subsToShowThree.forEach(i => {
+    //         i.classList.add('remove');
+    //     });
+    // });
 
 }, 200);
 
