@@ -19,6 +19,19 @@ const questionContainerSix = document.querySelector('.question-container-six');
 const questionContainerSeven = document.querySelector('.question-container-seven');
 const questionContainerEight = document.querySelector('.question-container-eight');
 const questionContainerNine = document.querySelector('.question-container-nine');
+
+const closeInfo = document.querySelector(".close-info");
+
+const optionsOne = document.querySelectorAll('.options-one');
+const textAreaTwo = document.querySelector('#text-area-two');
+const textAreaThree = document.querySelector('#text-area-three');
+const optionsFour = document.querySelectorAll('.options-four');
+const optionsFive = document.querySelectorAll('.options-five');
+const textAreaSix = document.querySelector('#text-area-six');
+const optionsSeven = document.querySelectorAll('.options-seven');
+const textAreaEight = document.querySelector('#text-area-eight');
+const optionsNine = document.querySelectorAll('.options-nine');
+
 const btnOne = document.querySelector('.btn-one');
 const btnTwo = document.querySelector('.btn-two');
 const btnThree = document.querySelector('.btn-three');
@@ -39,28 +52,9 @@ let questionSeven = false;
 let questionEight = false;
 let questionNine = false;
 
+const sceneCount = document.querySelector('.scene-count')
 let sceneNumber = 1;
 let playState = 'play';
-
-const closeInfo = document.querySelector(".close-info");
-
-forwardIcon.addEventListener("click", () => {
-    console.log("klik")
-    audio.currentTime += 10.0;
-});
-
-backwardIcon.addEventListener("click", () => {
-    console.log("klik")
-    audio.currentTime -= 10.0;
-});
-
-toggleButton.addEventListener("click", () => {
-    if (playState == 'play') {
-        playAudio();
-    } else {
-        pauseAudio();
-    }
-});
 
 function playAudio() {
     audio.play();
@@ -149,11 +143,11 @@ audio.addEventListener('timeupdate', () => {
     currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
 
     if (sceneNumber == 1) {
-        showQuestions(20, 40, 60, questionContainerOne, questionContainerTwo, questionContainerThree);
+        showQuestions(30, 56, 73, questionContainerOne, questionContainerTwo, questionContainerThree);
     }
 
     if (sceneNumber == 2) {
-        showQuestions(2, 7, 12, questionContainerFour, questionContainerFive, questionContainerSix);
+        showQuestions(36, 50, 77, questionContainerFour, questionContainerFive, questionContainerSix);
     }
 
     if (sceneNumber == 3) {
@@ -161,54 +155,136 @@ audio.addEventListener('timeupdate', () => {
     }
 });
 
+forwardIcon.addEventListener("click", () => {
+    console.log("klik")
+    audio.currentTime += 10.0;
+});
+
+backwardIcon.addEventListener("click", () => {
+    console.log("klik")
+    audio.currentTime -= 10.0;
+});
+
+toggleButton.addEventListener("click", () => {
+    if (playState == 'play') {
+        playAudio();
+    } else {
+        pauseAudio();
+    }
+});
+
 seekSlider.addEventListener('input', () => {
     showRangeProgress();
+});
+
+optionsOne.forEach(answer => {
+    answer.addEventListener('click', () => {
+        if (answer.checked = true) {
+            btnOne.removeAttribute('disabled');
+        }
+    });
+});
+
+textAreaTwo.addEventListener('keydown', () => {
+    if (textAreaTwo.value.length == 10) {
+        btnTwo.removeAttribute('disabled');
+    }
+});
+
+textAreaThree.addEventListener('keydown', () => {
+    if (textAreaThree.value.length == 10) {
+        btnThree.removeAttribute('disabled');
+    }
+});
+
+optionsFour.forEach(answer => {
+    answer.addEventListener('click', () => {
+        if (answer.checked = true) {
+            btnFour.removeAttribute('disabled');
+        }
+    });
+});
+
+optionsFive.forEach(answer => {
+    answer.addEventListener('click', () => {
+        if (answer.checked = true) {
+            btnFive.removeAttribute('disabled');
+        }
+    });
+});
+
+textAreaSix.addEventListener('keydown', () => {
+    if (textAreaSix.value.length == 10) {
+        btnSix.removeAttribute('disabled');
+    }
+});
+
+optionsSeven.forEach(answer => {
+    answer.addEventListener('click', () => {
+        if (answer.checked = true) {
+            btnSeven.removeAttribute('disabled');
+        }
+    });
+});
+
+textAreaEight.addEventListener('keydown', () => {
+    if (textAreaEight.value.length == 10) {
+        btnEight.removeAttribute('disabled');
+    }
+});
+
+optionsNine.forEach(answer => {
+    answer.addEventListener('click', () => {
+        if (answer.checked = true) {
+            btnNine.removeAttribute('disabled');
+        }
+    });
 });
 
 btnOne.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerOne.classList.remove('visible');
-})
+});
 
 btnTwo.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerTwo.classList.remove('visible');
-})
+});
 
 btnThree.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerThree.classList.remove('visible');
-})
+});
 
 btnFour.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerFive.classList.remove('visible');
-})
+});
 
 btnFive.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerFive.classList.remove('visible');
-})
+});
 
 btnSix.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerSix.classList.remove('visible');
-})
+});
 
 btnSeven.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerSeven.classList.remove('visible');
-})
+});
 
 btnEight.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerEight.classList.remove('visible');
-})
+});
 
 btnNine.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerNine.classList.remove('visible');
-})
+});
 
 const sideBar = document.querySelector("aside");
 const infoImage = document.querySelector("#info-container > img");
@@ -248,15 +324,13 @@ function removeInfo(DOM_Container) {
 setTimeout(() => {
     const hotspotContainer = document.querySelector("#panorama > .pnlm-render-container");
     const switchSceneTwoHotspots = hotspotContainer.querySelectorAll(".scene-hotspot");
-    // console.log(testthing);
-    // const switchToSceneTwo = hotspotContainer.getElementsByTagName("div")[2];
-    // const switchToSceneTwoAlso = hotspotContainer.getElementsByTagName("div")[3];
 
     const subSceneOne = document.querySelectorAll(".subs-scene-one");
     const subSceneTwo = document.querySelectorAll(".subs-scene-two");
     const subSceneThree = document.querySelectorAll(".subs-scene-three");
 
     if (sceneNumber == 1) {
+        sceneCount.innerHTML = sceneNumber;
         const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
         const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
 
@@ -279,8 +353,6 @@ setTimeout(() => {
         switchSceneTwoHotspots.forEach(i => {
             i.classList.add('pop');
         });
-        // switchToSceneTwo.classList.add('pop');
-        // switchToSceneTwoAlso.classList.add('pop');
         pauseAudio();
     });
 
@@ -288,7 +360,7 @@ setTimeout(() => {
 
         sceneSwitch.addEventListener('click', () => {
             sceneNumber = 2;
-            console.log('scene ' + sceneNumber)
+            sceneCount.innerHTML = sceneNumber;
             audioSource.src = "audio/scripttweedescene.mp3";
             audio.load();
             subtitleContainer.classList.add('hidden');
@@ -329,6 +401,7 @@ setTimeout(() => {
 
                     switchToSceneThree.addEventListener('click', () => {
                         sceneNumber = 3;
+                        sceneCount.innerHTML = sceneNumber;
                         audioSource.src = "audio/scriptderdescene.mp3";
                         audio.load();
 
@@ -339,25 +412,31 @@ setTimeout(() => {
                         subSceneThree.forEach(i => {
                             i.classList.remove('hidden');
                         });
+
+                        setTimeout(() => {
+                            if (sceneNumber == 3) {
+                                const sceneThreeHotspotOne = hotspotContainer.getElementsByTagName("div")[0];
+                                const sceneThreeHotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
+
+                                sceneThreeHotspotOne.addEventListener("click", () => {
+                                    fetchJson("5");
+                                    displayInfo(subtitleContainerthree);
+                                });
+
+                                sceneThreeHotspotTwo.addEventListener("click", () => {
+                                    fetchJson("6");
+                                    displayInfo(subtitleContainerthree);
+                                });
+
+                                closeInfo.addEventListener("click", () => {
+                                    removeInfo(subtitleContainerthree);
+                                });
+                            }
+                        }, 200);
                     });
                 };
             }, 200);
         });
     });
-
-    // switchToSceneThree.addEventListener('click', () => {
-    //     sceneNumber = 3;
-    //     audioSource.src = "audio/scriptderdescene.mp3";
-    //     audio.load();
-
-    //     subsToShowThree.forEach(i => {
-    //         i.classList.add('paste');
-    //     })
-
-    //     subsToShowThree.forEach(i => {
-    //         i.classList.add('remove');
-    //     });
-    // });
-
 }, 200);
 

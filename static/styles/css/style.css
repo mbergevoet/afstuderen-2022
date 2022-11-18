@@ -359,10 +359,37 @@ table {
 .detail-main .sidebar.grow {
   width: 30%;
 }
+.detail-main .sidebar .previous-page {
+  display: block;
+  position: absolute;
+  top: 5px;
+  z-index: 9;
+  height: 2em;
+  width: 1.6em;
+  background-color: transparent;
+}
+.detail-main .sidebar .previous-page::before, .detail-main .sidebar .previous-page::after {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 3px;
+  background-color: #7E7E7E;
+}
+.detail-main .sidebar .previous-page::before {
+  rotate: 45deg;
+  left: 14px;
+  top: -2px;
+}
+.detail-main .sidebar .previous-page::after {
+  rotate: -45deg;
+  left: 14px;
+  top: 12px;
+}
 .detail-main .sidebar .text-wrapper {
   height: calc(100% - 160px);
   overflow-y: scroll;
-  padding: 1em 2em;
+  padding: 1em 2.5em;
+  position: relative;
 }
 .detail-main .sidebar .text-wrapper::-webkit-scrollbar {
   display: none;
@@ -442,7 +469,7 @@ table {
 }
 .detail-main .sidebar .text-wrapper #info-container .close-info {
   position: absolute;
-  right: -25px;
+  right: -34px;
   top: -33px;
   height: 2em;
   width: 2em;
@@ -649,50 +676,6 @@ table {
   background-image: url(../../images/scene-icon.png);
   background-repeat: no-repeat;
   background-position: center;
-}
-.detail-main .pick-side {
-  height: 100vh;
-  width: 80%;
-  position: absolute;
-  right: 0;
-  display: none;
-  flex-direction: row;
-  backdrop-filter: blur(2px);
-}
-.detail-main .pick-side.visible {
-  display: flex;
-}
-.detail-main .pick-side a {
-  display: block;
-  flex: 1;
-  height: inherit;
-  transition: 0.2s all;
-  color: #000;
-}
-.detail-main .pick-side a:hover {
-  cursor: pointer;
-}
-.detail-main .pick-side a:hover p {
-  color: #fff;
-}
-.detail-main .pick-side a p {
-  font-size: 1.5em;
-  position: absolute;
-  top: 50%;
-  margin-left: 17%;
-  transition: 0.2s all;
-}
-.detail-main .pick-side .go-left {
-  background-color: rgba(126, 126, 126, 0.8);
-}
-.detail-main .pick-side .go-left:hover {
-  background-color: rgba(126, 126, 126, 0.95);
-}
-.detail-main .pick-side .go-right {
-  background-color: rgba(174, 174, 174, 0.8);
-}
-.detail-main .pick-side .go-right:hover {
-  background-color: rgba(174, 174, 174, 0.95);
 }
 .detail-main .question-background {
   display: none;
@@ -971,16 +954,39 @@ table {
 .detail-main .question-background .question-container-nine button:hover {
   cursor: pointer;
 }
-.detail-main .question-background .question-container-one button:active,
-.detail-main .question-background .question-container-two button:active,
-.detail-main .question-background .question-container-three button:active,
-.detail-main .question-background .question-container-four button:active,
-.detail-main .question-background .question-container-five button:active,
-.detail-main .question-background .question-container-six button:active,
-.detail-main .question-background .question-container-seven button:active,
-.detail-main .question-background .question-container-eight button:active,
-.detail-main .question-background .question-container-nine button:active {
+.detail-main .question-background .question-container-one button:hover:active,
+.detail-main .question-background .question-container-two button:hover:active,
+.detail-main .question-background .question-container-three button:hover:active,
+.detail-main .question-background .question-container-four button:hover:active,
+.detail-main .question-background .question-container-five button:hover:active,
+.detail-main .question-background .question-container-six button:hover:active,
+.detail-main .question-background .question-container-seven button:hover:active,
+.detail-main .question-background .question-container-eight button:hover:active,
+.detail-main .question-background .question-container-nine button:hover:active {
   background-color: #6a6a6a;
+}
+.detail-main .question-background .question-container-one button:disabled,
+.detail-main .question-background .question-container-two button:disabled,
+.detail-main .question-background .question-container-three button:disabled,
+.detail-main .question-background .question-container-four button:disabled,
+.detail-main .question-background .question-container-five button:disabled,
+.detail-main .question-background .question-container-six button:disabled,
+.detail-main .question-background .question-container-seven button:disabled,
+.detail-main .question-background .question-container-eight button:disabled,
+.detail-main .question-background .question-container-nine button:disabled {
+  background-color: #bbbbbb;
+  cursor: default;
+}
+.detail-main .question-background .question-container-one button:disabled:hover:active,
+.detail-main .question-background .question-container-two button:disabled:hover:active,
+.detail-main .question-background .question-container-three button:disabled:hover:active,
+.detail-main .question-background .question-container-four button:disabled:hover:active,
+.detail-main .question-background .question-container-five button:disabled:hover:active,
+.detail-main .question-background .question-container-six button:disabled:hover:active,
+.detail-main .question-background .question-container-seven button:disabled:hover:active,
+.detail-main .question-background .question-container-eight button:disabled:hover:active,
+.detail-main .question-background .question-container-nine button:disabled:hover:active {
+  background-color: #bbbbbb;
 }
 .detail-main .question-background .question-container-one button.save-button,
 .detail-main .question-background .question-container-two button.save-button,
@@ -1004,6 +1010,18 @@ table {
 .detail-main .question-background .question-container-nine button.next-button {
   width: 200px;
   transform: translate(0px, 286px);
+}
+.detail-main .scene-counter {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-weight: 500;
+  font-size: 1em;
+  color: #0000006d;
+  background-color: #f5f5f53d;
+  padding: 5px 5px 5px 10px;
+  z-index: 999;
+  border-radius: 0 0 0 10px;
 }
 
 .end-main {
