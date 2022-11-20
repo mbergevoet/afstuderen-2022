@@ -52,6 +52,14 @@ let questionSeven = false;
 let questionEight = false;
 let questionNine = false;
 
+// let multipleChoiceAnswers = [".wrong", ".wrong", ".wrong", ".wrong", ".wrong"];
+let multipleChoiceOne = "wrong";
+let multipleChoiceFour = "wrong";
+let multipleChoiceFive = "wrong";
+let multipleChoiceSeven = "wrong";
+let multipleChoiceNine = "wrong";
+// if the right answer (the right child) is clicked change to true. Then loop over the array and add class that shows green on the end screen
+
 const sceneCount = document.querySelector('.scene-count')
 let sceneNumber = 1;
 let playState = 'play';
@@ -98,29 +106,6 @@ function whilePlaying() {
     audioTrackWrapper.style.setProperty('--seek-before-width', `${seekSlider.value / seekSlider.max * 100}%`);
 }
 
-function showQuestions(stampOne, stampTwo, stampThree, oneDomElement, twoDomElement, threeDomElement) {
-    let flooredCurrentTime = Math.floor(audio.currentTime);
-
-    if (flooredCurrentTime == stampOne && questionOne == false) {
-        pauseAudio();
-        questionOne = true;
-        questionBackground.classList.add("visible");
-        oneDomElement.classList.add("visible");
-    }
-    if (flooredCurrentTime == stampTwo && questionTwo == false) {
-        pauseAudio();
-        questionTwo = true;
-        questionBackground.classList.add("visible");
-        twoDomElement.classList.add("visible");
-    }
-    if (flooredCurrentTime == stampThree && questionThree == false) {
-        pauseAudio();
-        questionThree = true;
-        questionBackground.classList.add("visible");
-        threeDomElement.classList.add("visible");
-    }
-}
-
 if (audio.readyState > 0) {
     displayDuration();
     setSliderMax();
@@ -131,6 +116,77 @@ if (audio.readyState > 0) {
     });
 }
 
+function showQuestionsOne(stampOne, stampTwo, stampThree) {
+    let flooredCurrentTime = Math.floor(audio.currentTime);
+
+    if (flooredCurrentTime == stampOne && questionOne == false) {
+        pauseAudio();
+        questionOne = true;
+        questionBackground.classList.add("visible");
+        questionContainerOne.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampTwo && questionTwo == false) {
+        pauseAudio();
+        questionTwo = true;
+        questionBackground.classList.add("visible");
+        questionContainerTwo.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampThree && questionThree == false) {
+        pauseAudio();
+        questionThree = true;
+        questionBackground.classList.add("visible");
+        questionContainerThree.classList.add("visible");
+    }
+}
+
+function showQuestionsTwo(stampOne, stampTwo, stampThree) {
+    let flooredCurrentTime = Math.floor(audio.currentTime);
+
+    if (flooredCurrentTime == stampOne && questionFour == false) {
+        pauseAudio();
+        questionFour = true;
+        console.log(questionFour)
+        questionBackground.classList.add("visible");
+        questionContainerFour.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampTwo && questionFive == false) {
+        pauseAudio();
+        questionFive = true;
+        questionBackground.classList.add("visible");
+        questionContainerFive.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampThree && questionSix == false) {
+        pauseAudio();
+        questionSix = true;
+        questionBackground.classList.add("visible");
+        questionContainerSix.classList.add("visible");
+    }
+}
+
+function showQuestionsThree(stampOne, stampTwo, stampThree) {
+    let flooredCurrentTime = Math.floor(audio.currentTime);
+
+    if (flooredCurrentTime == stampOne && questionSeven == false) {
+        pauseAudio();
+        questionSeven = true;
+        console.log(questionFour)
+        questionBackground.classList.add("visible");
+        questionContainerSeven.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampTwo && questionEight == false) {
+        pauseAudio();
+        questionEight = true;
+        questionBackground.classList.add("visible");
+        questionContainerEight.classList.add("visible");
+    }
+    if (flooredCurrentTime == stampThree && questionNine == false) {
+        pauseAudio();
+        questionNine = true;
+        questionBackground.classList.add("visible");
+        questionContainerNine.classList.add("visible");
+    }
+}
+
 audio.addEventListener('loadedmetadata', () => {
     displayDuration(audio.duration);
 });
@@ -139,19 +195,24 @@ audio.addEventListener('timeupdate', () => {
     seekSlider.value = Math.floor(audio.currentTime);
     currentTimeContainer.textContent = calculateTime(seekSlider.value);
     whilePlaying();
-    let currentWord = document.querySelector("span.speaking");
-    currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
 
     if (sceneNumber == 1) {
-        showQuestions(30, 56, 73, questionContainerOne, questionContainerTwo, questionContainerThree);
+        showQuestionsOne(30, 56, 73);
     }
 
     if (sceneNumber == 2) {
-        showQuestions(36, 50, 77, questionContainerFour, questionContainerFive, questionContainerSix);
+        showQuestionsTwo(30, 50, 77);
     }
 
     if (sceneNumber == 3) {
-        showQuestions(5, 7, 12, questionContainerSeven, questionContainerEight, questionContainerNine);
+        showQuestionsThree(22, 28, 39);
+    }
+});
+
+audio.addEventListener('timeupdate', () => {
+    if (sceneNumber == 1 || sceneNumber == 2) {
+        let currentWord = document.querySelector("span.speaking");
+        currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
     }
 });
 
@@ -244,46 +305,79 @@ optionsNine.forEach(answer => {
 btnOne.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerOne.classList.remove('visible');
+    playAudio();
 });
 
 btnTwo.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerTwo.classList.remove('visible');
+    playAudio();
 });
 
 btnThree.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerThree.classList.remove('visible');
+    playAudio();
 });
 
 btnFour.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerFive.classList.remove('visible');
+    playAudio();
 });
 
 btnFive.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerFive.classList.remove('visible');
+    playAudio();
 });
 
 btnSix.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerSix.classList.remove('visible');
+    playAudio();
 });
 
 btnSeven.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerSeven.classList.remove('visible');
+    playAudio();
 });
 
 btnEight.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerEight.classList.remove('visible');
+    playAudio();
 });
 
 btnNine.addEventListener('click', () => {
     questionBackground.classList.remove('visible');
     questionContainerNine.classList.remove('visible');
+});
+
+optionsOne[0].addEventListener('click', () => {
+    multipleChoiceOne = "correct";
+    localStorage.setItem("answerOne", multipleChoiceOne);
+});
+
+optionsFour[3].addEventListener('click', () => {
+    multipleChoiceFour = "correct";
+    localStorage.setItem("answerFour", multipleChoiceFour);
+});
+
+optionsFive[1].addEventListener('click', () => {
+    multipleChoiceFive = "correct";
+    localStorage.setItem("answerFive", multipleChoiceFive);
+});
+
+optionsSeven[0].addEventListener('click', () => {
+    multipleChoiceSeven = "correct";
+    localStorage.setItem("answerSeven", multipleChoiceFive);
+});
+
+optionsNine[2].addEventListener('click', () => {
+    multipleChoiceNine = "correct";
+    localStorage.setItem("answerNine", multipleChoiceFive);
 });
 
 const sideBar = document.querySelector("aside");
@@ -330,6 +424,7 @@ setTimeout(() => {
     const subSceneThree = document.querySelectorAll(".subs-scene-three");
 
     if (sceneNumber == 1) {
+        console.log(sceneNumber)
         sceneCount.innerHTML = sceneNumber;
         const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
         const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
@@ -337,11 +432,13 @@ setTimeout(() => {
         hotspotOne.addEventListener("click", () => {
             fetchJson("1");
             displayInfo(subtitleContainer);
+            pauseAudio();
         });
 
         hotspotTwo.addEventListener("click", () => {
             fetchJson("2")
             displayInfo(subtitleContainer);
+            pauseAudio();
         });
 
         closeInfo.addEventListener("click", () => {

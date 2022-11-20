@@ -854,7 +854,42 @@ $offwhite: #F5F5F5;
 
                 &.next-button {
                     width: 200px;
-                    transform: translate(0px, 286px);
+                    transform: translate(0px, 283px);
+                }
+            }
+
+            form {
+                height: fit-content;
+                transform: translateY(283px);
+
+                input[type=submit] {
+                    height: fit-content;
+                    display: inline-block;
+                    position: relative;
+                    background-color: #7E7E7E;
+                    border: none;
+                    color: #fff;
+                    padding: 0.5em;
+                    font-size: 1.3em;
+
+                    &:disabled {
+                        background-color: #bbbbbb;
+                        cursor: default;
+
+                        &:hover {
+                            &:active {
+                                background-color: #bbbbbb;
+                            }
+                        }
+                    }
+
+                    &:hover {
+                        cursor: pointer;
+
+                        &:active {
+                            background-color: #6a6a6a;
+                        }
+                    }
                 }
             }
         }
@@ -914,22 +949,48 @@ $offwhite: #F5F5F5;
             border-radius: 10px;
         }
 
-        &.right {
+        &.waiting {
             &::before {
-                background-color: #1ea1855a;
+                background-color: #F29B265a;
             }
         }
 
-        &.wrong {
+        &.null {
             &::before {
                 background-color: #BD392F5a;
             }
+
+            .result {
+
+                &::before {
+                    content: "fout";
+                    font-weight: 800;
+                }
+            }
+        }
+
+        &.correct {
+            &::before {
+                background-color: #1ea1855a;
+            }
+
+            .result {
+
+                &::before {
+                    content: "goed";
+                    font-weight: 800;
+                }
+            }
+        }
+
+        &.bottom {
+            padding-bottom: 7em;
         }
     }
 
     a {
-        position: absolute;
-        bottom: 5em;
+        position: fixed;
+        bottom: 5%;
         padding: 0.5em;
         background-color: #7E7E7E;
         color: #fff;
@@ -945,11 +1006,11 @@ $offwhite: #F5F5F5;
         }
 
         &.replay-chapter {
-            left: 10%
+            left: 5%
         }
 
         &.end-chapter {
-            right: 10%;
+            right: 5%;
         }
     }
 }

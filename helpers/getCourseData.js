@@ -1,17 +1,32 @@
-function getCourseData(course) {
-    const courseData = [
+function getQuestionData(question) {
+    const questionData = [
         {
-            "id": "1",
-            "infoText": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui.",
-            "picturePath": "images/romeinse-gezichtshelm.jpg"
+            "question": "1",
+            "state": "false"
+        },
+        {
+            "question": "2",
+            "state": "false"
+        },
+        {
+            "question": "3",
+            "state": "false"
+        },
+        {
+            "question": "4",
+            "state": "false"
+        },
+        {
+            "question": "5",
+            "state": "false"
         }
     ];
 
-    return courseData.map(entry => {
+    return questionData.map(entry => {
         if (entry.course === course) {
             return entry;
         }
     }).filter(entry => entry !== undefined)
 };
 
-module.exports = { getCourseData };
+module.exports = { getQuestionData };

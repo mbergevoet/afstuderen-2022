@@ -1009,7 +1009,82 @@ table {
 .detail-main .question-background .question-container-eight button.next-button,
 .detail-main .question-background .question-container-nine button.next-button {
   width: 200px;
-  transform: translate(0px, 286px);
+  transform: translate(0px, 283px);
+}
+.detail-main .question-background .question-container-one form,
+.detail-main .question-background .question-container-two form,
+.detail-main .question-background .question-container-three form,
+.detail-main .question-background .question-container-four form,
+.detail-main .question-background .question-container-five form,
+.detail-main .question-background .question-container-six form,
+.detail-main .question-background .question-container-seven form,
+.detail-main .question-background .question-container-eight form,
+.detail-main .question-background .question-container-nine form {
+  height: fit-content;
+  transform: translateY(283px);
+}
+.detail-main .question-background .question-container-one form input[type=submit],
+.detail-main .question-background .question-container-two form input[type=submit],
+.detail-main .question-background .question-container-three form input[type=submit],
+.detail-main .question-background .question-container-four form input[type=submit],
+.detail-main .question-background .question-container-five form input[type=submit],
+.detail-main .question-background .question-container-six form input[type=submit],
+.detail-main .question-background .question-container-seven form input[type=submit],
+.detail-main .question-background .question-container-eight form input[type=submit],
+.detail-main .question-background .question-container-nine form input[type=submit] {
+  height: fit-content;
+  display: inline-block;
+  position: relative;
+  background-color: #7E7E7E;
+  border: none;
+  color: #fff;
+  padding: 0.5em;
+  font-size: 1.3em;
+}
+.detail-main .question-background .question-container-one form input[type=submit]:disabled,
+.detail-main .question-background .question-container-two form input[type=submit]:disabled,
+.detail-main .question-background .question-container-three form input[type=submit]:disabled,
+.detail-main .question-background .question-container-four form input[type=submit]:disabled,
+.detail-main .question-background .question-container-five form input[type=submit]:disabled,
+.detail-main .question-background .question-container-six form input[type=submit]:disabled,
+.detail-main .question-background .question-container-seven form input[type=submit]:disabled,
+.detail-main .question-background .question-container-eight form input[type=submit]:disabled,
+.detail-main .question-background .question-container-nine form input[type=submit]:disabled {
+  background-color: #bbbbbb;
+  cursor: default;
+}
+.detail-main .question-background .question-container-one form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-two form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-three form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-four form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-five form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-six form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-seven form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-eight form input[type=submit]:disabled:hover:active,
+.detail-main .question-background .question-container-nine form input[type=submit]:disabled:hover:active {
+  background-color: #bbbbbb;
+}
+.detail-main .question-background .question-container-one form input[type=submit]:hover,
+.detail-main .question-background .question-container-two form input[type=submit]:hover,
+.detail-main .question-background .question-container-three form input[type=submit]:hover,
+.detail-main .question-background .question-container-four form input[type=submit]:hover,
+.detail-main .question-background .question-container-five form input[type=submit]:hover,
+.detail-main .question-background .question-container-six form input[type=submit]:hover,
+.detail-main .question-background .question-container-seven form input[type=submit]:hover,
+.detail-main .question-background .question-container-eight form input[type=submit]:hover,
+.detail-main .question-background .question-container-nine form input[type=submit]:hover {
+  cursor: pointer;
+}
+.detail-main .question-background .question-container-one form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-two form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-three form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-four form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-five form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-six form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-seven form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-eight form input[type=submit]:hover:active,
+.detail-main .question-background .question-container-nine form input[type=submit]:hover:active {
+  background-color: #6a6a6a;
 }
 .detail-main .scene-counter {
   position: absolute;
@@ -1060,15 +1135,29 @@ table {
   background-color: #D3D3D3;
   border-radius: 10px;
 }
-.end-main .question-result.right::before {
-  background-color: #1ea1855a;
+.end-main .question-result.waiting::before {
+  background-color: #F29B265a;
 }
-.end-main .question-result.wrong::before {
+.end-main .question-result.null::before {
   background-color: #BD392F5a;
 }
+.end-main .question-result.null .result::before {
+  content: "fout";
+  font-weight: 800;
+}
+.end-main .question-result.correct::before {
+  background-color: #1ea1855a;
+}
+.end-main .question-result.correct .result::before {
+  content: "goed";
+  font-weight: 800;
+}
+.end-main .question-result.bottom {
+  padding-bottom: 7em;
+}
 .end-main a {
-  position: absolute;
-  bottom: 5em;
+  position: fixed;
+  bottom: 5%;
   padding: 0.5em;
   background-color: #7E7E7E;
   color: #fff;
@@ -1082,10 +1171,10 @@ table {
   color: #fff;
 }
 .end-main a.replay-chapter {
-  left: 10%;
+  left: 5%;
 }
 .end-main a.end-chapter {
-  right: 10%;
+  right: 5%;
 }
 
 html {
