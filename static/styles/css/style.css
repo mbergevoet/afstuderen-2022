@@ -107,6 +107,10 @@ table {
   filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.45));
 }
 
+body {
+  background-color: #F5F5F5;
+}
+
 .home-main {
   overflow: hidden;
   position: relative;
@@ -350,7 +354,7 @@ table {
   position: absolute;
   left: 0;
   top: 0;
-  width: 25%;
+  width: 383px;
   height: 100vh;
   background-color: #F5F5F5;
   overflow: hidden;
@@ -359,40 +363,46 @@ table {
 .detail-main .sidebar.grow {
   width: 30%;
 }
-.detail-main .sidebar .previous-page {
+.detail-main .sidebar .hamburger-open {
   display: block;
   position: absolute;
   top: 5px;
+  left: 9px;
   z-index: 9;
   height: 2em;
   width: 1.6em;
-  background-color: transparent;
+  transition: 0.2s all;
 }
-.detail-main .sidebar .previous-page::before, .detail-main .sidebar .previous-page::after {
+.detail-main .sidebar .hamburger-open.slide-out-of-view {
+  left: -23px;
+}
+.detail-main .sidebar .hamburger-open:hover {
+  cursor: pointer;
+}
+.detail-main .sidebar .hamburger-open::before, .detail-main .sidebar .hamburger-open::after {
   position: absolute;
   content: "";
-  height: 22px;
-  width: 3px;
+  height: 3px;
+  width: 22px;
   background-color: #7E7E7E;
 }
-.detail-main .sidebar .previous-page::before {
-  rotate: 45deg;
-  left: 14px;
-  top: -2px;
+.detail-main .sidebar .hamburger-open::before {
+  top: 8px;
 }
-.detail-main .sidebar .previous-page::after {
-  rotate: -45deg;
-  left: 14px;
-  top: 12px;
+.detail-main .sidebar .hamburger-open::after {
+  bottom: 8px;
 }
 .detail-main .sidebar .text-wrapper {
-  height: calc(100% - 160px);
+  height: calc(100% - 134px);
   overflow-y: scroll;
   padding: 1em 2.5em;
   position: relative;
 }
 .detail-main .sidebar .text-wrapper::-webkit-scrollbar {
   display: none;
+}
+.detail-main .sidebar .text-wrapper #sub-container {
+  margin-top: 1em;
 }
 .detail-main .sidebar .text-wrapper #sub-container,
 .detail-main .sidebar .text-wrapper #sub-container-two,
@@ -404,7 +414,7 @@ table {
 .detail-main .sidebar .text-wrapper #sub-container-two .divider,
 .detail-main .sidebar .text-wrapper #sub-container-three .divider {
   display: block;
-  height: 2em;
+  margin: 1em 0;
   width: 100%;
 }
 .detail-main .sidebar .text-wrapper #sub-container .divider.hidden,
@@ -463,9 +473,16 @@ table {
 .detail-main .sidebar .text-wrapper #sub-container-two.hidden,
 .detail-main .sidebar .text-wrapper #sub-container-three.hidden {
   visibility: hidden;
+  height: 0;
 }
 .detail-main .sidebar .text-wrapper #info-container {
   position: relative;
+}
+.detail-main .sidebar .text-wrapper #info-container .info-top {
+  position: absolute;
+  top: -38px;
+  height: 1px;
+  width: 1px;
 }
 .detail-main .sidebar .text-wrapper #info-container .close-info {
   position: absolute;
@@ -520,13 +537,13 @@ table {
 .detail-main .audio-player {
   z-index: 10;
   position: fixed;
-  left: 1.5em;
+  left: 0;
   bottom: 1.5em;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  min-width: 435px;
+  min-width: 383px;
   height: 100px;
   border-radius: 23px;
   background-color: #F5F5F5;
@@ -613,7 +630,7 @@ table {
 }
 .detail-main .audio-player .audio-track-wrapper .audio-track input[type=range] {
   -webkit-appearance: none;
-  width: 300px;
+  width: 252px;
   position: relative;
 }
 .detail-main .audio-player .audio-track-wrapper .audio-track input[type=range]:before {
@@ -649,10 +666,76 @@ table {
   margin-bottom: 1em;
 }
 .detail-main #panorama {
-  height: 100vh;
-  width: 75%;
+  height: calc(100vh - 2em);
+  width: calc(100% - 415px);
   position: absolute;
-  right: 0;
+  top: 1em;
+  right: 1em;
+  bottom: 1em;
+  left: calc(383px + 1em);
+  border-radius: 50px;
+}
+.detail-main #panorama .scene-counter,
+.detail-main #panorama .scene-location {
+  position: absolute;
+  right: 50%;
+  left: 50%;
+  translate: -50% -50%;
+  font-family: "Libre Franklin", sans-serif;
+  font-weight: 500;
+  font-size: 1em;
+  z-index: 10;
+}
+.detail-main #panorama .scene-counter {
+  width: 75px;
+  top: 8px;
+  padding: 6px 15px;
+  border-radius: 0 0 20px 20px;
+  background-color: #F5F5F5;
+}
+.detail-main #panorama .scene-location {
+  width: max-content;
+  bottom: -586px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5em 1em;
+  padding-bottom: 3em;
+  border-radius: 20px 20px 0 0;
+  background-color: #F5F5F5;
+  z-index: 10;
+  transition: 0.4s cubic-bezier(0.25, 1.7, 0.35, 0.8);
+}
+.detail-main #panorama .scene-location:hover {
+  cursor: pointer;
+}
+.detail-main #panorama .scene-location.slide-up {
+  bottom: -242px;
+}
+.detail-main #panorama .scene-location div {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+}
+.detail-main #panorama .scene-location div p {
+  margin-left: 0.5em;
+  margin-bottom: 1.5em;
+}
+.detail-main #panorama .scene-location img {
+  width: 250px;
+  height: auto;
+}
+.detail-main #panorama #degrees-icon {
+  position: absolute;
+  bottom: 1em;
+  left: 3em;
+  height: 25px;
+  width: auto;
+  z-index: 10;
+}
+.detail-main #panorama #degrees-icon g path {
+  fill: #F5F5F5;
 }
 .detail-main #panorama > .pnlm-render-container .pnlm-pointer {
   visibility: hidden !important;
@@ -676,6 +759,69 @@ table {
   background-image: url(../../images/scene-icon.png);
   background-repeat: no-repeat;
   background-position: center;
+}
+.detail-main .hamburger-background {
+  display: none;
+  position: absolute;
+  z-index: 20;
+  height: 100vh;
+  width: 100vw;
+  background-color: #484848c2;
+  backdrop-filter: blur(3px);
+}
+.detail-main .hamburger-background.visible {
+  display: block;
+}
+.detail-main .hamburger-menu {
+  position: absolute;
+  left: -383px;
+  display: flex;
+  flex-direction: column;
+  background-color: #F5F5F5;
+  height: 100vh;
+  width: 383px;
+  z-index: 30;
+  transition: 0.3s all;
+}
+.detail-main .hamburger-menu.open {
+  left: 0;
+}
+.detail-main .hamburger-menu .hamburger-close {
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  height: 2em;
+  width: 2em;
+  background-color: none;
+  border-radius: 50%;
+}
+.detail-main .hamburger-menu .hamburger-close:hover {
+  cursor: pointer;
+}
+.detail-main .hamburger-menu .hamburger-close::before, .detail-main .hamburger-menu .hamburger-close::after {
+  position: absolute;
+  content: "";
+  height: 2em;
+  width: 3px;
+  background-color: #7E7E7E;
+  right: 15px;
+  top: 0px;
+}
+.detail-main .hamburger-menu .hamburger-close::before {
+  rotate: 45deg;
+}
+.detail-main .hamburger-menu .hamburger-close::after {
+  rotate: -45deg;
+}
+.detail-main .hamburger-menu a {
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1.3em;
+  color: #000;
+  padding: 1em 2.5em;
+}
+.detail-main .hamburger-menu a:nth-child(2) {
+  margin-top: 4em;
 }
 .detail-main .question-background {
   display: none;
@@ -821,8 +967,19 @@ table {
 .detail-main .question-background .question-container-seven div label input:checked + p span,
 .detail-main .question-background .question-container-eight div label input:checked + p span,
 .detail-main .question-background .question-container-nine div label input:checked + p span {
-  background-color: #7E7E7E;
-  color: white;
+  background-color: #E2B3B0;
+  color: #fff;
+}
+.detail-main .question-background .question-container-one div label input:checked + p.right span,
+.detail-main .question-background .question-container-two div label input:checked + p.right span,
+.detail-main .question-background .question-container-three div label input:checked + p.right span,
+.detail-main .question-background .question-container-four div label input:checked + p.right span,
+.detail-main .question-background .question-container-five div label input:checked + p.right span,
+.detail-main .question-background .question-container-six div label input:checked + p.right span,
+.detail-main .question-background .question-container-seven div label input:checked + p.right span,
+.detail-main .question-background .question-container-eight div label input:checked + p.right span,
+.detail-main .question-background .question-container-nine div label input:checked + p.right span {
+  background-color: #AAD8CE;
 }
 .detail-main .question-background .question-container-one div label p,
 .detail-main .question-background .question-container-two div label p,
@@ -927,7 +1084,7 @@ table {
 .detail-main .question-background .question-container-seven button,
 .detail-main .question-background .question-container-eight button,
 .detail-main .question-background .question-container-nine button {
-    width: 441px;
+    width: 442px;
   }
 }
 @media (min-width: 1717px) {
@@ -1086,18 +1243,6 @@ table {
 .detail-main .question-background .question-container-nine form input[type=submit]:hover:active {
   background-color: #6a6a6a;
 }
-.detail-main .scene-counter {
-  position: absolute;
-  top: 0;
-  right: 0;
-  font-weight: 500;
-  font-size: 1em;
-  color: #0000006d;
-  background-color: #f5f5f53d;
-  padding: 5px 5px 5px 10px;
-  z-index: 999;
-  border-radius: 0 0 0 10px;
-}
 
 .end-main {
   position: relative;
@@ -1138,10 +1283,10 @@ table {
 .end-main .question-result.waiting::before {
   background-color: #F29B265a;
 }
-.end-main .question-result.null::before {
+.end-main .question-result.null::before, .end-main .question-result.wrong::before {
   background-color: #BD392F5a;
 }
-.end-main .question-result.null .result::before {
+.end-main .question-result.null .result::before, .end-main .question-result.wrong .result::before {
   content: "fout";
   font-weight: 800;
 }
@@ -1157,7 +1302,7 @@ table {
 }
 .end-main a {
   position: fixed;
-  bottom: 5%;
+  bottom: 3%;
   padding: 0.5em;
   background-color: #7E7E7E;
   color: #fff;
@@ -1171,10 +1316,10 @@ table {
   color: #fff;
 }
 .end-main a.replay-chapter {
-  left: 5%;
+  left: 2%;
 }
 .end-main a.end-chapter {
-  right: 5%;
+  right: 2%;
 }
 
 html {

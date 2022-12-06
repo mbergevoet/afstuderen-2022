@@ -9,6 +9,10 @@ const audio = document.querySelector('audio');
 const audioSource = document.querySelector('#audio-file source');
 const durationContainer = document.getElementById('duration');
 const currentTimeContainer = document.getElementById('current-time');
+const hamburgerOpen = document.querySelector('.hamburger-open');
+const hamburgerClose = document.querySelector('.hamburger-close');
+const hamburgerMenu = document.querySelector('.hamburger-menu');
+const hamburgerBackground = document.querySelector('.hamburger-background');
 const questionBackground = document.querySelector('.question-background');
 const questionContainerOne = document.querySelector('.question-container-one');
 const questionContainerTwo = document.querySelector('.question-container-two');
@@ -21,6 +25,7 @@ const questionContainerEight = document.querySelector('.question-container-eight
 const questionContainerNine = document.querySelector('.question-container-nine');
 
 const closeInfo = document.querySelector(".close-info");
+const infoTop = document.querySelector("info-top");
 
 const optionsOne = document.querySelectorAll('.options-one');
 const textAreaTwo = document.querySelector('#text-area-two');
@@ -52,15 +57,16 @@ let questionSeven = false;
 let questionEight = false;
 let questionNine = false;
 
-// let multipleChoiceAnswers = [".wrong", ".wrong", ".wrong", ".wrong", ".wrong"];
 let multipleChoiceOne = "wrong";
 let multipleChoiceFour = "wrong";
 let multipleChoiceFive = "wrong";
 let multipleChoiceSeven = "wrong";
 let multipleChoiceNine = "wrong";
-// if the right answer (the right child) is clicked change to true. Then loop over the array and add class that shows green on the end screen
 
-const sceneCount = document.querySelector('.scene-count')
+const sceneCount = document.querySelector('.scene-count');
+const sceneLocation = document.querySelector('.scene-location');
+const sceneLocationName = document.querySelector('.scene-location-name');
+const sceneLocationImage = document.querySelector('.scene-location-image');
 let sceneNumber = 1;
 let playState = 'play';
 
@@ -80,7 +86,6 @@ function pauseAudio() {
 
 // Audio track functionality
 function showRangeProgress() {
-    // console.log(seekSlider.value);
     audioTrackWrapper.style.setProperty('--seek-before-width', seekSlider.value / seekSlider.max * 100 + '%');
     audio.currentTime = seekSlider.value;
 }
@@ -145,7 +150,6 @@ function showQuestionsTwo(stampOne, stampTwo, stampThree) {
     if (flooredCurrentTime == stampOne && questionFour == false) {
         pauseAudio();
         questionFour = true;
-        console.log(questionFour)
         questionBackground.classList.add("visible");
         questionContainerFour.classList.add("visible");
     }
@@ -197,23 +201,21 @@ audio.addEventListener('timeupdate', () => {
     whilePlaying();
 
     if (sceneNumber == 1) {
-        showQuestionsOne(30, 56, 73);
+        showQuestionsOne(31, 58, 75);
     }
 
     if (sceneNumber == 2) {
-        showQuestionsTwo(30, 50, 77);
+        showQuestionsTwo(37, 52, 81);
     }
 
     if (sceneNumber == 3) {
-        showQuestionsThree(22, 28, 39);
+        showQuestionsThree(23, 30, 42);
     }
 });
 
 audio.addEventListener('timeupdate', () => {
-    if (sceneNumber == 1 || sceneNumber == 2) {
-        let currentWord = document.querySelector("span.speaking");
-        currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
-    }
+    let currentWord = document.querySelector("span.speaking");
+    currentWord.scrollIntoView({ behavior: "smooth", block: "center" });
 });
 
 forwardIcon.addEventListener("click", () => {
@@ -238,11 +240,28 @@ seekSlider.addEventListener('input', () => {
     showRangeProgress();
 });
 
+sceneLocation.addEventListener('click', () => {
+    sceneLocation.classList.toggle('slide-up');
+});
+
+hamburgerOpen.addEventListener('click', () => {
+    hamburgerMenu.classList.add('open');
+    hamburgerBackground.classList.add('visible');
+});
+
+hamburgerClose.addEventListener('click', () => {
+    hamburgerMenu.classList.remove('open');
+    hamburgerBackground.classList.remove('visible');
+});
+
 optionsOne.forEach(answer => {
     answer.addEventListener('click', () => {
         if (answer.checked = true) {
             btnOne.removeAttribute('disabled');
         }
+        optionsOne.forEach(answer => {
+            answer.disabled = true;
+        });
     });
 });
 
@@ -263,6 +282,9 @@ optionsFour.forEach(answer => {
         if (answer.checked = true) {
             btnFour.removeAttribute('disabled');
         }
+        optionsFour.forEach(answer => {
+            answer.disabled = true;
+        });
     });
 });
 
@@ -271,6 +293,9 @@ optionsFive.forEach(answer => {
         if (answer.checked = true) {
             btnFive.removeAttribute('disabled');
         }
+        optionsFive.forEach(answer => {
+            answer.disabled = true;
+        });
     });
 });
 
@@ -285,6 +310,9 @@ optionsSeven.forEach(answer => {
         if (answer.checked = true) {
             btnSeven.removeAttribute('disabled');
         }
+        optionsSeven.forEach(answer => {
+            answer.disabled = true;
+        });
     });
 });
 
@@ -299,6 +327,9 @@ optionsNine.forEach(answer => {
         if (answer.checked = true) {
             btnNine.removeAttribute('disabled');
         }
+        optionsNine.forEach(answer => {
+            answer.disabled = true;
+        });
     });
 });
 
@@ -358,26 +389,36 @@ btnNine.addEventListener('click', () => {
 optionsOne[0].addEventListener('click', () => {
     multipleChoiceOne = "correct";
     localStorage.setItem("answerOne", multipleChoiceOne);
+    const correctAnswer = optionsOne[0].nextElementSibling;
+    correctAnswer.classList.add('right');
 });
 
 optionsFour[3].addEventListener('click', () => {
     multipleChoiceFour = "correct";
     localStorage.setItem("answerFour", multipleChoiceFour);
+    const correctAnswer = optionsFour[3].nextElementSibling;
+    correctAnswer.classList.add('right');
 });
 
 optionsFive[1].addEventListener('click', () => {
     multipleChoiceFive = "correct";
     localStorage.setItem("answerFive", multipleChoiceFive);
+    const correctAnswer = optionsFive[1].nextElementSibling;
+    correctAnswer.classList.add('right');
 });
 
 optionsSeven[0].addEventListener('click', () => {
     multipleChoiceSeven = "correct";
-    localStorage.setItem("answerSeven", multipleChoiceFive);
+    localStorage.setItem("answerSeven", multipleChoiceSeven);
+    const correctAnswer = optionsSeven[0].nextElementSibling;
+    correctAnswer.classList.add('right');
 });
 
 optionsNine[2].addEventListener('click', () => {
     multipleChoiceNine = "correct";
-    localStorage.setItem("answerNine", multipleChoiceFive);
+    localStorage.setItem("answerNine", multipleChoiceNine);
+    const correctAnswer = optionsNine[2].nextElementSibling;
+    correctAnswer.classList.add('right');
 });
 
 const sideBar = document.querySelector("aside");
@@ -387,7 +428,7 @@ const infoText = document.querySelector("#info-container > p");
 
 const subtitleContainer = document.querySelector("#sub-container");
 const subtitleContainerTwo = document.querySelector("#sub-container-two");
-const subtitleContainerthree = document.querySelector("#sub-container-three");
+const subtitleContainerThree = document.querySelector("#sub-container-three");
 
 function fetchJson(infoID) {
     fetch("../json/info.json")
@@ -401,7 +442,6 @@ function fetchJson(infoID) {
 }
 
 function displayInfo(DOM_Container) {
-    sideBar.classList.add("grow");
     DOM_Container.classList.add("visible");
     closeInfo.classList.add("visible");
 }
@@ -410,7 +450,6 @@ function removeInfo(DOM_Container) {
     infoImage.src = "";
     infoHeading.innerHTML = "";
     infoText.innerHTML = "";
-    sideBar.classList.remove("grow");
     DOM_Container.classList.remove("visible");
     closeInfo.classList.remove("visible");
 }
@@ -424,7 +463,6 @@ setTimeout(() => {
     const subSceneThree = document.querySelectorAll(".subs-scene-three");
 
     if (sceneNumber == 1) {
-        console.log(sceneNumber)
         sceneCount.innerHTML = sceneNumber;
         const hotspotOne = hotspotContainer.getElementsByTagName("div")[0];
         const hotspotTwo = hotspotContainer.getElementsByTagName("div")[1];
@@ -433,16 +471,21 @@ setTimeout(() => {
             fetchJson("1");
             displayInfo(subtitleContainer);
             pauseAudio();
+            hamburgerOpen.classList.add("slide-out-of-view");
+            infoTop.scrollIntoView({ block: "start" });
         });
 
         hotspotTwo.addEventListener("click", () => {
             fetchJson("2")
             displayInfo(subtitleContainer);
             pauseAudio();
+            hamburgerOpen.classList.add("slide-out-of-view");
+            infoTop.scrollIntoView({ block: "start" });
         });
 
         closeInfo.addEventListener("click", () => {
             removeInfo(subtitleContainer);
+            hamburgerOpen.classList.remove("slide-out-of-view")
         });
     }
 
@@ -458,9 +501,17 @@ setTimeout(() => {
         sceneSwitch.addEventListener('click', () => {
             sceneNumber = 2;
             sceneCount.innerHTML = sceneNumber;
-            audioSource.src = "audio/scripttweedescene.mp3";
+            sceneLocationName.innerHTML = "De Rijn, onderdeel van de Limes";
+            sceneLocationImage.src = "images/de-rijn-nederland.png";
+            audioSource.src = "audio/scripttweedescene-alt.mp3";
             audio.load();
+            infoImage.src = "";
+            infoHeading.innerHTML = "";
+            infoText.innerHTML = "";
+            closeInfo.classList.remove("visible");
             subtitleContainer.classList.add('hidden');
+            hamburgerMenu.classList.remove('open');
+            hamburgerBackground.classList.remove('visible');
 
             subSceneOne.forEach(i => {
                 i.classList.add('hidden');
@@ -469,6 +520,8 @@ setTimeout(() => {
             subSceneTwo.forEach(i => {
                 i.classList.remove('hidden');
             });
+
+            subtitleContainerTwo.scrollIntoView({ behavior: "smooth", block: "start" });
 
             setTimeout(() => {
                 if (sceneNumber == 2) {
@@ -484,23 +537,38 @@ setTimeout(() => {
                     sceneTwoHotspotOne.addEventListener("click", () => {
                         fetchJson("3");
                         displayInfo(subtitleContainerTwo);
+                        pauseAudio();
+                        hamburgerOpen.classList.add("slide-out-of-view");
+                        infoTop.scrollIntoView({ block: "start" });
                     });
 
                     sceneTwoHotspotTwo.addEventListener("click", () => {
                         fetchJson("4");
                         displayInfo(subtitleContainerTwo);
+                        pauseAudio();
+                        hamburgerOpen.classList.add("slide-out-of-view");
+                        infoTop.scrollIntoView({ block: "start" });
                     });
 
                     closeInfo.addEventListener("click", () => {
                         removeInfo(subtitleContainerTwo);
+                        hamburgerOpen.classList.remove("slide-out-of-view");
                     });
-
 
                     switchToSceneThree.addEventListener('click', () => {
                         sceneNumber = 3;
                         sceneCount.innerHTML = sceneNumber;
-                        audioSource.src = "audio/scriptderdescene.mp3";
+                        sceneLocationName.innerHTML = "Ruïne van castellum langs de Limes";
+                        sceneLocationImage.src = "images/het-castellum-nederland.png";
+                        audioSource.src = "audio/scriptderdescene-alt.mp3";
                         audio.load();
+                        infoImage.src = "";
+                        infoHeading.innerHTML = "";
+                        infoText.innerHTML = "";
+                        closeInfo.classList.remove("visible");
+                        subtitleContainerTwo.classList.add("hidden");
+                        hamburgerMenu.classList.remove('open');
+                        hamburgerBackground.classList.remove('visible');
 
                         subSceneTwo.forEach(i => {
                             i.classList.add('hidden');
@@ -510,6 +578,8 @@ setTimeout(() => {
                             i.classList.remove('hidden');
                         });
 
+                        subtitleContainerThree.scrollIntoView({ behavior: "smooth", block: "start" });
+
                         setTimeout(() => {
                             if (sceneNumber == 3) {
                                 const sceneThreeHotspotOne = hotspotContainer.getElementsByTagName("div")[0];
@@ -517,16 +587,23 @@ setTimeout(() => {
 
                                 sceneThreeHotspotOne.addEventListener("click", () => {
                                     fetchJson("5");
-                                    displayInfo(subtitleContainerthree);
+                                    displayInfo(subtitleContainerThree);
+                                    pauseAudio();
+                                    hamburgerOpen.classList.add("slide-out-of-view");
+                                    infoTop.scrollIntoView({ block: "start" });
                                 });
 
                                 sceneThreeHotspotTwo.addEventListener("click", () => {
                                     fetchJson("6");
-                                    displayInfo(subtitleContainerthree);
+                                    displayInfo(subtitleContainerThree);
+                                    pauseAudio();
+                                    hamburgerOpen.classList.add("slide-out-of-view");
+                                    infoTop.scrollIntoView({ block: "start" });
                                 });
 
                                 closeInfo.addEventListener("click", () => {
-                                    removeInfo(subtitleContainerthree);
+                                    removeInfo(subtitleContainerThree);
+                                    hamburgerOpen.classList.remove("slide-out-of-view");
                                 });
                             }
                         }, 200);

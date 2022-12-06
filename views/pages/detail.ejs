@@ -10,14 +10,16 @@
     <main class="detail-main">
         <%- include('../partials/sidebar') %>
             <%- include('../partials/audioplayer') %>
-                <div id="panorama"></div>
-                <%- include('../partials/chooseside') %>
+                <div id="panorama">
+                    <%- include('../partials/panoramaoverlay') %>
+                </div>
+                <%- include('../partials/hamburgermenu') %>
                     <div class="question-background">
                         <%- include('../partials/questionssceneone') %>
                             <%- include('../partials/questionsscenetwo') %>
                                 <%- include('../partials/questionsscenethree') %>
                     </div>
-                    <div class="scene-counter">scene <span class="scene-count">0</span>/3</div>
+
     </main>
     <script src="scripts/read-along.js"></script>
     <script src="scripts/main.js"></script>

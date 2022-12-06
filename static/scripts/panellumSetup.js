@@ -5,7 +5,11 @@ pannellum.viewer('panorama', {
         "showFullscreenCtrl": false,
         "compass": false,
         "mouseZoom": false,
+        // "autoRotate": 5,
+        // "autoRotateInactivityDelay": 10000,
         // "hotSpotDebug": true,
+        "minPitch": -90,
+        "maxPitch": 90,
         "firstScene": "riverbank",
         "sceneFadeDuration": 1000
     },
