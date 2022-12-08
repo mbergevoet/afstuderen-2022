@@ -25,7 +25,7 @@ const questionContainerEight = document.querySelector('.question-container-eight
 const questionContainerNine = document.querySelector('.question-container-nine');
 
 const closeInfo = document.querySelector(".close-info");
-const infoTop = document.querySelector("info-top");
+const infoTop = document.querySelector(".info-top");
 
 const optionsOne = document.querySelectorAll('.options-one');
 const textAreaTwo = document.querySelector('#text-area-two');
@@ -65,8 +65,10 @@ let multipleChoiceNine = "wrong";
 
 const sceneCount = document.querySelector('.scene-count');
 const sceneLocation = document.querySelector('.scene-location');
+const sceneLocationTitle = document.querySelector('.scene-location-title');
 const sceneLocationName = document.querySelector('.scene-location-name');
 const sceneLocationImage = document.querySelector('.scene-location-image');
+const closeLocation = document.querySelector('.close-location');
 let sceneNumber = 1;
 let playState = 'play';
 
@@ -240,8 +242,24 @@ seekSlider.addEventListener('input', () => {
     showRangeProgress();
 });
 
-sceneLocation.addEventListener('click', () => {
-    sceneLocation.classList.toggle('slide-up');
+sceneLocationTitle.addEventListener('click', () => {
+    sceneLocation.classList.add('slide-up');
+    closeLocation.classList.add('visible');
+});
+
+closeLocation.addEventListener('click', () => {
+    console.log('klik')
+    sceneLocation.classList.remove('slide-up');
+    closeLocation.classList.remove('visible');
+});
+
+sceneLocationImage.addEventListener('wheel', (event) => {
+    let currWidth = sceneLocationImage.clientWidth;
+    if (event.deltaY < 0) {
+        sceneLocationImage.style.width = (currWidth + 50) + "px";
+    } else if (event.deltaY > 0) {
+        sceneLocationImage.style.width = (currWidth - 50) + "px";
+    }
 });
 
 hamburgerOpen.addEventListener('click', () => {
@@ -512,6 +530,8 @@ setTimeout(() => {
             subtitleContainer.classList.add('hidden');
             hamburgerMenu.classList.remove('open');
             hamburgerBackground.classList.remove('visible');
+            hamburgerOpen.classList.remove("slide-out-of-view");
+            sceneLocationImage.style.width = 250 + "px";
 
             subSceneOne.forEach(i => {
                 i.classList.add('hidden');
@@ -569,6 +589,8 @@ setTimeout(() => {
                         subtitleContainerTwo.classList.add("hidden");
                         hamburgerMenu.classList.remove('open');
                         hamburgerBackground.classList.remove('visible');
+                        hamburgerOpen.classList.add("slide-out-of-view");
+                        sceneLocationImage.style.width = 250 + "px";
 
                         subSceneTwo.forEach(i => {
                             i.classList.add('hidden');

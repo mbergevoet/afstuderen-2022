@@ -27,6 +27,9 @@ app
     .get('/difficulty/', (req, res) => {
         res.render('pages/difficulty.ejs');
     })
+    .get('/explain/', (req, res) => {
+        res.render('pages/explain.ejs');
+    })
     .get('/detail/', (req, res) => {
         res.render('pages/detail.ejs');
     })

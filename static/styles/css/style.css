@@ -344,6 +344,48 @@ body {
   background-color: #767983;
 }
 
+.explain-main {
+  position: relative;
+}
+.explain-main h2 {
+  margin-top: 3em;
+  font-size: 1.5em;
+  font-weight: 400;
+  text-align: center;
+}
+.explain-main ul {
+  width: 833px;
+  margin: 3em auto 0;
+}
+.explain-main ul li {
+  margin: 1em 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.explain-main ul li img {
+  margin: 0 2em 0 1em;
+  padding: 1em;
+  background-color: #dcdcdc;
+  border-radius: 50%;
+}
+.explain-main a {
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  padding: 0.5em;
+  background-color: #7E7E7E;
+  color: #fff;
+  font-size: 1.3em;
+  text-decoration: none;
+}
+.explain-main a:hover {
+  cursor: pointer;
+}
+.explain-main a:visited {
+  color: #fff;
+}
+
 .detail-main {
   display: flex;
   flex-direction: row;
@@ -569,7 +611,9 @@ body {
 }
 .detail-main .audio-player .audio-controls .icon:hover {
   cursor: pointer;
-  transform: scale(1.05);
+}
+.detail-main .audio-player .audio-controls .icon:active {
+  transform: scale(0.9);
 }
 .detail-main .audio-player .audio-controls .go-back-icon,
 .detail-main .audio-player .audio-controls .go-forward-icon {
@@ -584,7 +628,7 @@ body {
   fill: #626262;
 }
 .detail-main .audio-player .audio-controls .play-icon {
-  transition: 0.1s all;
+  transition: 0.2s all;
 }
 .detail-main .audio-player .audio-controls .play-icon.hide {
   display: none;
@@ -596,7 +640,7 @@ body {
   fill: #626262;
 }
 .detail-main .audio-player .audio-controls .pause-icon {
-  transition: 0.1s all;
+  transition: 0.2s all;
 }
 .detail-main .audio-player .audio-controls .pause-icon.hide {
   display: none;
@@ -694,7 +738,8 @@ body {
   background-color: #F5F5F5;
 }
 .detail-main #panorama .scene-location {
-  width: max-content;
+  width: 316px;
+  height: 353px;
   bottom: -586px;
   display: flex;
   flex-direction: column;
@@ -704,6 +749,7 @@ body {
   padding-bottom: 3em;
   border-radius: 20px 20px 0 0;
   background-color: #F5F5F5;
+  overflow: hidden;
   z-index: 10;
   transition: 0.4s cubic-bezier(0.25, 1.7, 0.35, 0.8);
 }
@@ -713,18 +759,51 @@ body {
 .detail-main #panorama .scene-location.slide-up {
   bottom: -242px;
 }
-.detail-main #panorama .scene-location div {
+.detail-main #panorama .scene-location .scene-location-title {
   display: flex;
   flex-direction: row;
   align-items: baseline;
+  position: absolute;
+  top: 0;
+  background-color: #F5F5F5;
+  padding: 0.5em 1.5em;
 }
-.detail-main #panorama .scene-location div p {
+.detail-main #panorama .scene-location .scene-location-title p {
   margin-left: 0.5em;
-  margin-bottom: 1.5em;
 }
-.detail-main #panorama .scene-location img {
+.detail-main #panorama .scene-location .close-location {
+  position: absolute;
+  right: 9px;
+  top: 6px;
+  height: 1.5em;
+  width: 1.5em;
+  background-color: #F5F5F5;
+  display: none;
+  z-index: 11;
+}
+.detail-main #panorama .scene-location .close-location::before, .detail-main #panorama .scene-location .close-location::after {
+  position: absolute;
+  content: "";
+  height: 1em;
+  width: 3px;
+  background-color: #7E7E7E;
+  right: 10px;
+  top: 5px;
+}
+.detail-main #panorama .scene-location .close-location::before {
+  rotate: 45deg;
+}
+.detail-main #panorama .scene-location .close-location::after {
+  rotate: -45deg;
+}
+.detail-main #panorama .scene-location .close-location.visible {
+  display: block;
+}
+.detail-main #panorama .scene-location .scene-location-image {
+  margin-top: 1.5em;
   width: 250px;
   height: auto;
+  object-fit: cover;
 }
 .detail-main #panorama #degrees-icon {
   position: absolute;
